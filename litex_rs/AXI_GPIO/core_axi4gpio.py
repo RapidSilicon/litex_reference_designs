@@ -89,5 +89,5 @@ class gpio_axi(Module, AutoDoc, AutoCSR):
             self.comb += pads.o[i].eq(self.GPOUT[i])
             
     
-        rtl_path = str(os.path.expanduser('~')) + "/tarball/tarball_20_06/litex_rs/litex_rs/AXI_GPIO/rtl"
+        rtl_path = str(os.path.expanduser('~')) + "/litex_instll/litex_rs/litex_rs/AXI_GPIO/rtl"
         platform.add_source_dir(path=rtl_path)
