@@ -184,5 +184,5 @@ class axi_ram_2(Module, AutoDoc, AutoCSR):
             i_s_axi_rready=bus.r.ready,
         )
         
-        rtl_path = str(os.path.expanduser('~')) + "/tarball/tarball_20_06/litex_rs/litex_rs/axi_ram/rtl/axi_ram.v"
+        rtl_path = str(os.path.expanduser('~')) + "/litex_instll/litex_rs/litex_rs/axi_ram/rtl/axi_ram.v"
         platform.add_source(rtl_path)
