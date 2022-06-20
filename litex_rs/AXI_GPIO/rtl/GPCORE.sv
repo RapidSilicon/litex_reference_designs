@@ -89,7 +89,7 @@ module GPCORE (
       rGpDat <= 32'h0;
       rGpDir <= 32'h0;
       rGpIen <=  1'b0;
-      rGpInt <=  1'b0;
+//      rGpInt <=  1'b0;
       rGpClr <=  1'b0;
     end
     else begin

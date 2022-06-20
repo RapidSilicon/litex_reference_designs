@@ -2,7 +2,14 @@
 THis is an example based on a 32 bit GPIO with Vexriscv SoC.
 
 ### Instructions:
-Copy your demo folder from litex installation directory ``litex/litex/soc/software/demo`` and paste it inside your project directory. Use the main.c file provided in this example in the demo application and replace it with the main.c file located inside your newly copied demo folder in project directory.
+Copy the demo folder from litex installation directory ``litex/litex/soc/software/demo`` and paste it inside your project directory. Use the main.c file provided in test folder of this example and replace it with the main.c file located inside your newly copied demo folder in project directory.
+
+
+## Generate the design
+
+```
+litex_sim --cpu-type vexriscv --axigpio --no-compile-gateware 
+```
 
 ## 1. Simulation
 
@@ -23,9 +30,9 @@ Run the following command to execute your applicationcode onto the processor:
 litex_sim --integrated-main-ram-size=0x10000 --cpu-type vexriscv --axigpio --ram-init=demo.bin --sim-debug
 ```
 ### Output:
-![gpio_out.png](./../../Pictures/gpio_out.png "Optional title")
+![gpio_out.png](./../Pictures/gpio_out.png "Optional title")
 
-![gpio_hard.png](./../../Pictures/gpio_hard.png "Optional title")
+![gpio_hard.png](./../Pictures/gpio_hard.png "Optional title")
 
 
 ## Application
