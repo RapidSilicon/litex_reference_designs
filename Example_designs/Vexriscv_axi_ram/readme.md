@@ -29,7 +29,7 @@ Run the following command to execute your application:
 litex_sim --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo.bin --sim-debug --axiram
 ```
 ### Output:
-![ram_sim.png](./../Pictures/ram_sim.png "Optional title")
+![ram_sim.png](./../../Pictures/ram_sim.png "Optional title")
 
 
 ## Application

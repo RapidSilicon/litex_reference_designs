@@ -28,7 +28,7 @@ litex_sim --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo
 
 
 ## Output:
-![hello_sim.png](./../Pictures/hello_sim.png "Optional title")
+![hello_sim.png](./../../Pictures/hello_sim.png "Optional title")
 
 ## Application
 This application code prints a Hello World onto the terminal via Uart.

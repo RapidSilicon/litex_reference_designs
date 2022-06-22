@@ -30,9 +30,7 @@ Run the following command to execute your applicationcode onto the processor:
 litex_sim --integrated-main-ram-size=0x10000 --cpu-type vexriscv --axigpio --ram-init=demo.bin --sim-debug
 ```
 ### Output:
-![gpio_out.png](./../Pictures/gpio_out.png "Optional title")
-
-![gpio_hard.png](./../Pictures/gpio_hard.png "Optional title")
+![gpio_out.png](./../../Pictures/gpio_out.png "Optional title")
 
 
 ## Application
