@@ -98,5 +98,5 @@ class axi_ram(Module, AutoDoc, AutoCSR):
             i_s_axi_rready=bus.r.ready,
         )
         
-        rtl_path = str(os.path.expanduser('~')) + "/litex_instll/litex_rs/litex_rs/axi_ram/rtl/axi_ram.v"
+        rtl_path = str(os.path.expanduser('~')) + "/litex_instll/litex_rs/Core_IPs/axi_ram/rtl/axi_ram.v"
         platform.add_source(rtl_path)

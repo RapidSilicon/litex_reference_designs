@@ -2,13 +2,17 @@
 Hello World application code for Vexriscv based SoC.
 
 ### Instructions:
-Copy the demo folder from litex installation directory ``litex/litex/soc/software/demo`` and paste it inside your project directory. Use the main.c file provided in test folder of this example and replace it with the main.c file located inside your newly copied demo folder in project directory.
+You can follow the below steps for generating the designs and running the application code or you can use the ```Makefile``` to automatically generate this.
 
 ## 1. Simulation:
-We can simulate the hello world example using litex_sim tool in litex.
+We can simulate the hello world example using litex_sim_rs script provided in the example.
 
 Run the following command to generate your SoC:
 ```
+
+~/litex_instll/litex_rs/raptor_example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
+
+            
 litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
 ```
 Before running the simulation, you have to create the binary of your application code residing in demo. The python script below generates the binary from application code as demo.bin, which is later loaded on to the system.
