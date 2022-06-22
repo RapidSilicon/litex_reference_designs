@@ -1,1 +1,1 @@
-from litex_rs.axi_ram.core_ram import axi_ram
+from Core_IPs.axi_ram.core_ram import axi_ram

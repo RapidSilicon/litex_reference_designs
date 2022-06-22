@@ -1,37 +1,53 @@
 # Vexriscv SoC with UART and AXI-GPIO
-THis is an example based on a 32 bit GPIO with Vexriscv SoC.
+GPIO LED application code running on a Vexriscv. This design contains a Vexriscv processor, ON chip ram, GPIO and UART.
 
 ### Instructions:
-Copy the demo folder from litex installation directory ``litex/litex/soc/software/demo`` and paste it inside your project directory. Use the main.c file provided in test folder of this example and replace it with the main.c file located inside your newly copied demo folder in project directory.
+You can follow the below steps to generate the designs and simulate the application on Verilator.
 
 
-## Generate the design
+## Generate Verilog for the LiteX design (No Simulation)
 
 ```
 litex_sim --cpu-type vexriscv --axigpio --no-compile-gateware 
 ```
 
-## 1. Simulation
+## Generate and Simulate the verilog for the LiteX design
+Here we simulate the GPIO LED example using litex_sim_rs script provided in the example design directory.
 
-We can simulate the integration application code in main.c using litex_sim tool in litex.
+### The following command generates your SoC:
+```
+~/litex_instll/litex_rs/raptor_example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --axigpio --no-compile-gateware --sim-debug
+```
 
-Run the following command to generate your SoC:
-```
-litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --axigpio --no-compile-gateware --sim-debug
-```
-Before running the simulation, you have to create the binary of your application code residing in demo. The python script below converts the application code to demo.bin, which is later loaded on to the ram.
+### Generate binary for the application code
 
-Run the following command to generate .bin file from .py file:
+Run the following command to generate .bin file:
 ```
-python3 ./demo/demo.py --build-path=build/sim
+python3 ~/litex_instll/litex_rs/raptor_example_designs/Vexriscv_axi_gpio_led/test/demo/demo.py --build-path=build/sim
 ```
-Run the following command to execute your applicationcode onto the processor:
+### Simulating the application using Verilator
+
+Run the following command to execute your application code onto the processor:
 ```
-litex_sim --integrated-main-ram-size=0x10000 --cpu-type vexriscv --axigpio --ram-init=demo.bin --sim-debug
+~/litex_instll/litex_rs/raptor_example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --integrated-main-ram-size=0x10000 --axigpio --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
 ```
+
 ### Output:
 ![gpio_out.png](./../../Pictures/gpio_out.png "Optional title")
 
 
 ## Application
-This test performs the write operation on specific addresses and the data is shown onto the console. This can be verified using the GTKwave.
+This test performs the write operations on GPIO LEDs. This can be seen on waves(VCD) and hardware.
+
+# Compile design for a Gemini Device
+
+### Source Raptor for compilation
+
+Raptor needs to be sourced before using Gemini.py
+
+### Compiling a design on Raptor for Gemini device
+
+```
+~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/gemini.py --toolchain=Raptor --device=gemini --cpu-type=vexriscv --axigpio --build
+```
+

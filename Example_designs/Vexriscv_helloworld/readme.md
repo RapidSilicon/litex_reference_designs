@@ -1,29 +1,35 @@
 # Vexriscv SoC with UART & Hello World:
-Hello World application code for Vexriscv based SoC.
+Hello World application code running on a Vexriscv. This design contains a Vexriscv processor, ON chip ram and UART.
 
 ### Instructions:
-You can follow the below steps for generating the designs and running the application code or you can use the ```Makefile``` to automatically generate this.
+You can follow the below steps to generate the designs and simulate the application on Verilator.
 
-## 1. Simulation:
-We can simulate the hello world example using litex_sim_rs script provided in the example.
 
-Run the following command to generate your SoC:
+## Generate Verilog for the LiteX design (No Simulation)
+
+```
+litex_sim --cpu-type vexriscv --no-compile-gateware 
 ```
 
+## Generate and Simulate the verilog for the LiteX design
+Here we simulate the hello world example using litex_sim_rs script provided in the example design directory.
+
+### The following command generates your SoC:
+```
 ~/litex_instll/litex_rs/raptor_example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
-
-            
-litex_sim --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
 ```
-Before running the simulation, you have to create the binary of your application code residing in demo. The python script below generates the binary from application code as demo.bin, which is later loaded on to the system.
 
-Run the following command to generate .bin file from .py file:
+### Generate binary for the application code
+
+Run the following command to generate .bin file:
 ```
 python3 ./demo/demo.py --build-path=build/sim
 ```
-Run the following command to execute your applicationcode onto the processor:
+### Simulating the application using Verilator
+
+Run the following command to execute your application code onto the processor:
 ```
-litex_sim --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo.bin --sim-debug
+~/litex_instll/litex_rs/raptor_example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
 ```
 
 
@@ -32,3 +38,16 @@ litex_sim --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo
 
 ## Application
 This application code prints a Hello World onto the terminal via Uart.
+
+
+# Compile design for a Gemini Device
+
+### Source Raptor for compilation
+
+Raptor needs to be sourced before using Gemini.py
+
+### Compiling a design on Raptor for Gemini device
+
+```
+~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/gemini.py --toolchain=Raptor --device=gemini --cpu-type=vexriscv --build
+```
