@@ -1,3 +1,9 @@
+///////////////////////////////////////////////////////
+
+Copyright (C) 2022 RapidSilicon
+
+//////////////////////////////////////////////////////
+
 # Vexriscv SoC with UART & RAM
 Axi Ram application code running on a Vexriscv. This design contains a Vexriscv processor, ON chip axi ram and UART.
 
@@ -39,7 +45,7 @@ Run the following command to execute your application code onto the processor:
 This application code does multiple tests onto the axiram, these tests do multiple write and read sequences on the ram to test the integration of the IP.
 
 
-# Compile design for a Gemini Device
+# Compile design for a Gemini FPGA Device
 
 ### Source Raptor for compilation
 

@@ -39,7 +39,7 @@ Run the following command to execute your application code onto the processor:
 ## Application
 This test performs the write operations on GPIO LEDs. This can be seen on waves(VCD) and hardware.
 
-# Compile design for a Gemini Device
+# Compile design for a Gemini FPGA Device
 
 ### Source Raptor for compilation
 

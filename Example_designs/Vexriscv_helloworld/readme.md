@@ -40,7 +40,7 @@ Run the following command to execute your application code onto the processor:
 This application code prints a Hello World onto the terminal via Uart.
 
 
-# Compile design for a Gemini Device
+# Compile design for a Gemini FPGA Device
 
 ### Source Raptor for compilation
 
