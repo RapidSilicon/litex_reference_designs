@@ -13,7 +13,7 @@ from litex.build.generic_platform import Pins, Subsignal
 from litex.build.osfpga import OSFPGAPlatform
 
 from Core_IPs.AXI_GPIO.core_axi4gpio import gpio_axi
-from Core_IPs.axi_ram.core_ram import axi_ram
+from Core_IPs.AXI_RAM.core_ram import axi_ram
 
 from litex.soc.integration.soc_core import *
 from litex.soc.integration.builder import *
