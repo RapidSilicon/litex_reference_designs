@@ -26,7 +26,7 @@ from litex.soc.cores.bitbang import *
 from litex.soc.cores.gpio import GPIOTristate
 from litex.soc.cores.cpu import CPUS
 from Core_IPs.AXI_GPIO.core_axi4gpio import gpio_axi
-from Core_IPs.axi_ram.core_ram import axi_ram
+from Core_IPs.AXI_RAM.core_ram import axi_ram
 
 from litedram import modules as litedram_modules
 from litedram.modules import parse_spd_hexdump

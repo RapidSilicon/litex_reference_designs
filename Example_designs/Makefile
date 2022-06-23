@@ -15,7 +15,7 @@ AXI_GPIO:
 			mkdir Litex_example_axigpio
 			~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --axigpio --no-compile-gateware --sim-debug
 			python3 ~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/test/demo/demo.py --build-path=build/sim
-			~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --axigpio --ram-init=demo.bin --sim-debug
+			~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --axigpio --ram-init=demo.bin --sim-debug --trace
 
 clean:
 		rm -rf Litex_example*
