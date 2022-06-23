@@ -5,8 +5,8 @@ Litex_rs is a IP library package that provides open source IPs for Litex integra
 ```
 
 
-├── litex_rs
-├── raptor_example_designs
+├── Core_IPs
+├── Example_designs
 ├── readme.md
 └── setup.py
 
@@ -16,11 +16,6 @@ Litex_rs is a IP library package that provides open source IPs for Litex integra
 
 This contains the open source verilog based IPs onboarded onto Litex.
 
-Example: 
-
-```
-litex_sim --cpu-type vexriscv --axigpio 
-```
 
 
 ## Raptor_example_designs
