@@ -24,27 +24,31 @@ static void help(void)
 static void test(void)
 {
 	uint32_t value = 0xFFFFFFFF;
+	uint32_t addrs = 0xf0020000;
 
-	csr_write_simple(127, 0x50000000);
-	printf("\n");
-	printf("0 to 7 LEDs glowing represent 127");
-	printf("\n");
+	sim_trace_enable_write(1);
 
-	csr_write_simple(128, 0x50000008);
+	csr_write_simple(127, addrs);
 	printf("\n");
-	printf("0 to 9 LEDs glowing represent 511");
+	printf("0 to 6 LEDs glowing represents 127");
 	printf("\n");
 
-	csr_write_simple(511, 0x50000016);
+	csr_write_simple(128, addrs);
 	printf("\n");
-	printf("0 to 7 LEDs glowing represent 127");
+	printf("Only 8th LED glowing represents 128");
+	printf("\n");
+
+	csr_write_simple(255, addrs);
+	printf("\n");
+	printf("0 to 7 LEDs glowing represents 255");
 	printf("\n");
 	
-
-	csr_write_simple(value, 0x50000000);
+	csr_write_simple(value, addrs);
 	printf("\n");
 	printf("ALL LEDs glowing represents 0xFFFFFFFF");
 	printf("\n");
+
+	sim_trace_enable_write(0);
 
 }
 
