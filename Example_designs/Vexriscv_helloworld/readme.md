@@ -16,20 +16,20 @@ Here we simulate the hello world example using litex_sim_rs script provided in t
 
 ### The following command generates your SoC:
 ```
-~/litex_instll/litex_rs/raptor_example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
+~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
 ```
 
 ### Generate binary for the application code
 
 Run the following command to generate .bin file:
 ```
-python3 ./demo/demo.py --build-path=build/sim
+python3 .~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/test/demo/demo.py --build-path=build/sim
 ```
 ### Simulating the application using Verilator
 
 Run the following command to execute your application code onto the processor:
 ```
-~/litex_instll/litex_rs/raptor_example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
+~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
 ```
 
 
