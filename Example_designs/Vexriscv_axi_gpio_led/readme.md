@@ -52,6 +52,6 @@ Raptor needs to be sourced before using Gemini.py
 ### Compiling a design on Raptor for Gemini device
 
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/gemini.py --toolchain=Raptor --device=gemini --cpu-type=vexriscv --axigpio --build
+~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/gemini.py --toolchain=raptor --device=gemini --cpu-type=vexriscv --axigpio --build
 ```
 
