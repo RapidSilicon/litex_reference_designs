@@ -38,7 +38,7 @@ Run the following command to execute your application code onto the processor:
 ~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_ram/litex_sim_rs.py --integrated-main-ram-size=0x10000 --axiram --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
 ```
 ### Output:
-![ram_sim.png](./../../Pictures/ram_sim.png "Optional title")
+![ram_sim.png](./../../Docs/Pictures/ram_sim.png "Optional title")
 
 
 ## Application

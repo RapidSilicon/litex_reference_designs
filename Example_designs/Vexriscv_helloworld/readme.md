@@ -34,7 +34,7 @@ Run the following command to execute your application code onto the processor:
 
 
 ## Output:
-![hello_sim.png](./../../Pictures/hello_sim.png "Optional title")
+![hello_sim.png](./../../Docs/Pictures/hello_sim.png "Optional title")
 
 ## Application
 This application code prints a Hello World onto the terminal via Uart.

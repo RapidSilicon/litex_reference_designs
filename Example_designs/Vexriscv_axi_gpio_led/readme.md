@@ -32,8 +32,12 @@ Run the following command to execute your application code onto the processor:
 ~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --integrated-main-ram-size=0x10000 --axigpio --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
 ```
 
+![gpio_hard.png](./../../Docs/Pictures/gpio_hard.png "Optional title")
+
+
+
 ### Output:
-![gpio_out.png](./../../Pictures/gpio_out.png "Optional title")
+![gpio_out.png](./../../Docs/Pictures/gpio_out.png "Optional title")
 
 
 ## Application
