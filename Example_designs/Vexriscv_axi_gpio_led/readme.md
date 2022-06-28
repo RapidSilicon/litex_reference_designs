@@ -8,7 +8,7 @@ You can follow the below steps to generate the designs and simulate the applicat
 ## Generate Verilog for the LiteX design (No Simulation)
 
 ```
-litex_sim --cpu-type vexriscv --axigpio --no-compile-gateware 
+~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --cpu-type vexriscv --axigpio --no-compile-gateware 
 ```
 
 ## Generate and Simulate the verilog for the LiteX design
