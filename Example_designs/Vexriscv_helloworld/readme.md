@@ -23,7 +23,7 @@ Here we simulate the hello world example using litex_sim_rs script provided in t
 
 Run the following command to generate .bin file:
 ```
-python3 .~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/test/demo/demo.py --build-path=build/sim
+python3 ~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/test/demo/demo.py --build-path=build/sim
 ```
 ### Simulating the application using Verilator
 
