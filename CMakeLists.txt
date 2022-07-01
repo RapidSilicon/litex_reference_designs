@@ -39,9 +39,9 @@ find_package(Python COMPONENTS Interpreter REQUIRED)
 
 message(${PROJECT_SOURCE_DIR})
 
-execute_process(COMMAND cp -R ${PROJECT_SOURCE_DIR}/Example_designs /usr/local/share/Raptor)
+execute_process(COMMAND cp -R ${PROJECT_SOURCE_DIR}/Example_designs /nfs_scratch/scratch/litex/bilal_ahmed/raptr_instll/instll_dir/share/Raptor)
 
 message(STATUS "Copy files to /usr/local/share/Raptor")
 
-execute_process(COMMAND python3 /home/users/bilal.ahmed/rs_plugin/litex_rs/litex_rs_setup.py --dev --install --config=minimal)
+execute_process(COMMAND python3 ${PROJECT_SOURCE_DIR}/litex_rs_setup.py --dev --install --config=minimal)
 
