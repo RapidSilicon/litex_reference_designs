@@ -39,7 +39,7 @@ find_package(Python COMPONENTS Interpreter REQUIRED)
 
 message(${PROJECT_SOURCE_DIR})
 
-execute_process(COMMAND cp -R ${PROJECT_SOURCE_DIR}/Example_designs /nfs_scratch/scratch/litex/bilal_ahmed/raptr_instll/instll_dir/share/Raptor)
+execute_process(COMMAND cp -R ${PROJECT_SOURCE_DIR}/Example_designs /nfs_scratch/scratch/litex/bilal_ahmed/raptr_instll/instll_dir/share/raptor/)
 
 message(STATUS "Copy files to /usr/local/share/Raptor")
 
