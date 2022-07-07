@@ -43,5 +43,7 @@ execute_process(COMMAND cp -R ${PROJECT_SOURCE_DIR}/Example_designs /nfs_scratch
 
 message(STATUS "Copy files to /usr/local/share/Raptor")
 
-execute_process(COMMAND python3 ${PROJECT_SOURCE_DIR}/litex_rs_setup.py --dev --install --config=minimal)
+execute_process(COMMAND cp ${PROJECT_SOURCE_DIR}/setup.py ./)
+
+execute_process(COMMAND python3 ${CMAKE_SOURCE_DIR}/litex_rs_setup.py --dev --install)
 
