@@ -6,13 +6,9 @@ import os
 from migen import *
 
 from litex.soc.interconnect import axi
-from litex.soc.interconnect import wishbone
 
 from litex.soc.integration.soc import *
 from litex.soc.integration.doc import AutoDoc, ModuleDoc
-from litex.soc.integration.soc import SoCRegion
-from litex.soc.interconnect.axi import *
-
 
 
 def _to_signal(obj):
@@ -25,30 +21,6 @@ class gpio_axi(Module, AutoDoc, AutoCSR):
         self.intro = ModuleDoc("""GPIO_AXI: A verilog RTL-based GPIOs derived from Xilinx Vivado IP library.""")
 
         self.bus  = bus = axi.AXILiteInterface(address_width=32,data_width=32)
-        self.CLK = Signal()
-        self.RSTN = Signal()
-        self.GPIN = Signal(32)
-        self.GPOUT = Signal(32)
-        self.INT = Signal()
-        self.AWADDR = Signal(32)
-        self.AWPROT = Signal(3)
-        self.AWVALID = Signal()
-        self.AWREADY = Signal()
-        self.WDATA = Signal(32)
-        self.WSTRB = Signal(4)
-        self.WVALID = Signal()
-        self.WREADY = Signal()
-        self.BRESP = Signal(2)
-        self.BVALID = Signal()
-        self.BREADY = Signal()
-        self.ARADDR = Signal(32)
-        self.ARPROT = Signal(3)
-        self.ARVALID = Signal()
-        self.ARREADY = Signal()
-        self.RDATA = Signal(32)
-        self.RRESP = Signal(2)
-        self.RVALID = Signal()
-        self.RREADY = Signal()
 
         # # #
 
