@@ -1,3 +1,9 @@
+///////////////////////////////////////////////////////
+
+Copyright (C) 2022 RapidSilicon
+
+//////////////////////////////////////////////////////
+
 # Vexriscv SoC with UART & Hello World:
 Hello World application code running on a Vexriscv. This design contains a Vexriscv processor, ON chip ram and UART.
 
