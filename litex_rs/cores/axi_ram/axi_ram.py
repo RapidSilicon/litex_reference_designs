@@ -12,10 +12,11 @@ from litex.soc.integration.doc import AutoDoc, ModuleDoc
 from litex.soc.integration.soc import SoCRegion
 
 class Open(Signal): pass
-class axi_ram(Module, AutoDoc, AutoCSR):
-    """Verilog RTL-based Axi_ram"""
+
+class AXIRAM(Module, AutoDoc, AutoCSR):
+    """LiteX Verilog RTL-based Axi_ram"""
     def __init__(self, platform, pads, default_enable=0):
-        self.intro = ModuleDoc("""axi_ram: A verilog RTL-based axi_ram derived from the OpenCores.""")
+        self.intro = ModuleDoc("""AXIRAM: A verilog RTL-based AXI RAM wrapped from Alex Forenchich's Verilog AXI library.""")
 
         self.bus  = bus = axi.AXILiteInterface(data_width=32)
 

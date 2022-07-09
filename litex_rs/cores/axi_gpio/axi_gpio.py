@@ -14,11 +14,11 @@ from litex.soc.integration.doc import AutoDoc, ModuleDoc
 def _to_signal(obj):
     return obj.raw_bits() if isinstance(obj, Record) else obj
 
-
 class Open(Signal): pass
-class gpio_axi(Module, AutoDoc, AutoCSR):
+
+class AXIGPIO(Module, AutoDoc, AutoCSR):
     def __init__(self, platform, pads, default_enable=0):
-        self.intro = ModuleDoc("""GPIO_AXI: A verilog RTL-based GPIOs derived from Xilinx Vivado IP library.""")
+        self.intro = ModuleDoc("""AXIGPIO: A verilog RTL-based AXI GPIO core wrapped from Xilinx Vivado IP library.""")
 
         self.bus  = bus = axi.AXILiteInterface(address_width=32,data_width=32)
 
