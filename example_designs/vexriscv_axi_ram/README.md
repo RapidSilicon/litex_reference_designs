@@ -14,7 +14,7 @@ You can follow the below steps to generate the designs and simulate the applicat
 ## Generate Verilog for the LiteX design (No Simulation)
 
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_ram/litex_sim_rs.py --cpu-type vexriscv --axiram --no-compile-gateware 
+python3 litex_sim_rs.py --cpu-type vexriscv --axiram --no-compile-gateware
 ```
 
 ## Generate and Simulate the verilog for the LiteX design
@@ -22,7 +22,7 @@ Here we simulate the Axi Ram example using litex_sim_rs script provided in the e
 
 ### The following command generates your SoC:
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_ram/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --axiram --no-compile-gateware --sim-debug
+python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --axiram --no-compile-gateware --sim-debug
 ```
 
 ### Generate binary for the application code
@@ -35,10 +35,10 @@ python3 ~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_ram/test/demo/demo.
 
 Run the following command to execute your application code onto the processor:
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_ram/litex_sim_rs.py --integrated-main-ram-size=0x10000 --axiram --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
+python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --axiram --cpu-type vexriscv --ram-init=demo.bin --sim-debug
 ```
 ### Output:
-![ram_sim.png](./../../Docs/Pictures/ram_sim.png "Optional title")
+![ram_sim.png](./../../docs/ram_sim.png)
 
 
 ## Application
@@ -54,5 +54,5 @@ Raptor needs to be sourced before using Gemini.py
 ### Compiling a design on Raptor for Gemini device
 
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_ram/gemini.py --toolchain=raptor --device=gemini --cpu-type=vexriscv --axiram --build
+python3 gemini.py --toolchain=raptor --device=gemini --cpu-type=vexriscv --axiram --build
 ```

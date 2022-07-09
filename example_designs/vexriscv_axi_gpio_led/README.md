@@ -14,7 +14,7 @@ You can follow the below steps to generate the designs and simulate the applicat
 ## Generate Verilog for the LiteX design (No Simulation)
 
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --cpu-type vexriscv --axigpio --no-compile-gateware 
+python3 litex_sim_rs.py --cpu-type vexriscv --with-axi-gpio --no-compile-gateware
 ```
 
 ## Generate and Simulate the verilog for the LiteX design
@@ -22,28 +22,28 @@ Here we simulate the GPIO LED example using litex_sim_rs script provided in the 
 
 ### The following command generates your SoC:
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --axigpio --no-compile-gateware --sim-debug
+python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --with-axi-gpio --no-compile-gateware --sim-debug
 ```
 
 ### Generate binary for the application code
 
 Run the following command to generate .bin file:
 ```
-python3 ~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/test/demo/demo.py --build-path=build/sim
+python3 python3 vexriscv_axi_gpio_led/test/demo/demo.py --build-path=build/sim
 ```
 ### Simulating the application using Verilator
 
 Run the following command to execute your application code onto the processor:
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/litex_sim_rs.py --integrated-main-ram-size=0x10000 --axigpio --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
+python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --with-axi-gpio --cpu-type vexriscv --ram-init=demo.bin --sim-debug
 ```
 
-![gpio_hard.png](./../../Docs/Pictures/gpio_hard.png "Optional title")
+![gpio_hard.png](./../../docs/gpio_hard.png)
 
 
 
 ### Output:
-![gpio_out.png](./../../Docs/Pictures/gpio_out.png "Optional title")
+![gpio_out.png](./../../docs/gpio_out.png)
 
 
 ## Application
@@ -58,6 +58,6 @@ Raptor needs to be sourced before using Gemini.py
 ### Compiling a design on Raptor for Gemini device
 
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_axi_gpio_led/gemini.py --toolchain=raptor --device=gemini --cpu-type=vexriscv --axigpio --build
+python3 gemini.py --toolchain=raptor --device=gemini --cpu-type=vexriscv --with-axi-gpio --build
 ```
 

@@ -14,7 +14,7 @@ You can follow the below steps to generate the designs and simulate the applicat
 ## Generate Verilog for the LiteX design (No Simulation)
 
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/litex_sim_rs.py --cpu-type vexriscv --no-compile-gateware 
+python3 litex_sim_rs.py --cpu-type vexriscv --no-compile-gateware
 ```
 
 ## Generate and Simulate the verilog for the LiteX design
@@ -22,25 +22,25 @@ Here we simulate the hello world example using litex_sim_rs script provided in t
 
 ### The following command generates your SoC:
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
+python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
 ```
 
 ### Generate binary for the application code
 
 Run the following command to generate .bin file:
 ```
-python3 ~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/test/demo/demo.py --build-path=build/sim
+python3 python3 test/demo/demo.py --build-path=build/sim
 ```
 ### Simulating the application using Verilator
 
 Run the following command to execute your application code onto the processor:
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo.bin --sim-debug 
+python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo.bin --sim-debug
 ```
 
 
 ## Output:
-![hello_sim.png](./../../Docs/Pictures/hello_sim.png "Optional title")
+![hello_sim.png](./../../Docs/Pictures/hello_sim.png)
 
 ## Application
 This application code prints a Hello World onto the terminal via Uart.
@@ -55,5 +55,5 @@ Raptor needs to be sourced before using Gemini.py
 ### Compiling a design on Raptor for Gemini device
 
 ```
-~/litex_instll/litex_rs/Example_designs/Vexriscv_helloworld/gemini.py --toolchain=raptor --device=gemini --cpu-type=vexriscv --build
+python3 gemini.py --toolchain=raptor --device=gemini --cpu-type=vexriscv --build
 ```
