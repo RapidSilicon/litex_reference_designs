@@ -1,3 +1,8 @@
+///////////////////////////////////////////////////////
+
+Copyright (C) 2022 RapidSilicon
+
+//////////////////////////////////////////////////////
 # Vexriscv SoC with UART and AXI-GPIO
 GPIO LED application code running on a Vexriscv. This design contains a Vexriscv processor, ON chip ram, GPIO and UART.
 
