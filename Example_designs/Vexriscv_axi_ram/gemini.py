@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 
-#
-# This file is part of LiteX.
-#
-# Copyright (c) 2022 Florent Kermarrec <florent@enjoy-digital.fr>
-# SPDX-License-Identifier: BSD-2-Clause
+# This file is Copyright (c) 2022 RapidSilicon.
+# SPDX-License-Identifier: TBD.
 
 from migen import *
 

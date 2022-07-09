@@ -1,5 +1,5 @@
-// This file is Copyright (c) 2020 Florent Kermarrec <florent@enjoy-digital.fr>
-// License: BSD
+// This file is Copyright (c) 2022 RapidSilicon.
+// SPDX-License-Identifier: TBD.
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,3 +1,6 @@
+# This file is Copyright (c) 2022 RapidSilicon.
+# SPDX-License-Identifier: TBD.
+
 import os
 
 from migen import *
