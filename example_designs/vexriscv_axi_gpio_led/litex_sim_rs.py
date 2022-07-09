@@ -26,8 +26,6 @@ from litex.soc.integration.soc import *
 from litex.soc.cores.bitbang import *
 from litex.soc.cores.gpio import GPIOTristate
 from litex.soc.cores.cpu import CPUS
-from Core_IPs.AXI_GPIO.core_axi4gpio import gpio_axi
-from Core_IPs.AXI_RAM.core_ram import axi_ram
 
 from litedram import modules as litedram_modules
 from litedram.modules import parse_spd_hexdump
@@ -47,6 +45,9 @@ from liteeth.frontend.etherbone import LiteEthEtherbone
 from liteeth.common import *
 
 from litescope import LiteScopeAnalyzer
+
+from litex_rs.cores.axi_gpio import AXIGPIO
+from litex_rs.cores.axi_ram  import AXIRAM
 
 # IOs ----------------------------------------------------------------------------------------------
 
@@ -158,8 +159,8 @@ class SimSoC(SoCCore):
         with_spi_flash        = False,
         spi_flash_init        = [],
         with_gpio             = False,
-        axigpio               = False,
-        axiram                = False,
+        with_axi_gpio         = False,
+        with_axi_ram          = False,
         sim_debug             = False,
         trace_reset_on        = False,
         **kwargs):
@@ -210,28 +211,6 @@ class SimSoC(SoCCore):
                 # Reduce memtest size for simulation speedup
                 self.add_constant("MEMTEST_DATA_SIZE", 8*1024)
                 self.add_constant("MEMTEST_ADDR_SIZE", 8*1024)
-
-
-
-        #---------RS IP--AXI GPIO------------------
-        if axigpio:
-            self.submodules.gpio_axi = gpio_axi(platform, platform.request("gpio"))
-            self.bus.add_slave(name="gpio_axi", slave=self.gpio_axi.bus, region=SoCRegion(
-            origin = 0xf0020000,
-            size = 1024,
-            cached = False,
-            ))  
-
-
-        
-        #----------RS IP AXI RAM--------------
-        if axiram:
-            self.submodules.axi_ram = axi_ram(platform, pads=None)
-            self.bus.add_slave(name="axi_ram", slave=self.axi_ram.bus, region=SoCRegion(
-            origin = 0x50000000,
-            size = 1024,
-            cached = True,
-            )) 
 
         # Ethernet / Etherbone PHY -----------------------------------------------------------------
         if with_ethernet or with_etherbone:
@@ -348,6 +327,26 @@ class SimSoC(SoCCore):
                 clock_domain = "sys",
                 csr_csv      = "analyzer.csv")
 
+        # AXI GPIO ---------------------------------------------------------------------------------
+        if with_axi_gpio:
+            self.submodules.axi_gpio = AXIGPIO(platform, platform.request("gpio"))
+            self.bus.add_slave(name="axi_gpio", slave=self.axi_gpio.bus, region=SoCRegion(
+                origin = 0xf0020000,
+                size   = 1024,
+                cached = False,
+                )
+            )
+
+        # AXI RAM ----------------------------------------------------------------------------------
+        if with_axi_ram:
+            self.submodules.axi_ram = AXIRAM(platform, pads=None)
+            self.bus.add_slave(name="axi_ram", slave=self.axi_ram.bus, region=SoCRegion(
+                origin = 0x50000000,
+                size   = 1024,
+                cached = True,
+                )
+            )
+
 # Build --------------------------------------------------------------------------------------------
 
 def generate_gtkw_savefile(builder, vns, trace_fst):
@@ -413,8 +412,8 @@ def sim_args(parser):
     parser.add_argument("--sim-debug",            action="store_true",     help="Add simulation debugging modules.")
     parser.add_argument("--gtkwave-savefile",     action="store_true",     help="Generate GTKWave savefile.")
     parser.add_argument("--non-interactive",      action="store_true",     help="Run simulation without user input.")
-    parser.add_argument("--axigpio",              action="store_true",     help="AXI based 32 bit GPIO")
-    parser.add_argument("--axiram",               action="store_true",     help="AXI based RAM")
+    parser.add_argument("--with-axi-gpio",        action="store_true",     help="Add AXI-GPIO (32-bit) to design.")
+    parser.add_argument("--with-axi-ram",         action="store_true",     help="Add AXI-RAM to design.")
 
     
 
@@ -490,11 +489,11 @@ def main():
         with_sdcard        = args.with_sdcard,
         with_spi_flash     = args.with_spi_flash,
         with_gpio          = args.with_gpio,
-        axigpio            = args.axigpio,
-        axiram             = args.axiram,
         sim_debug          = args.sim_debug,
         trace_reset_on     = int(float(args.trace_start)) > 0 or int(float(args.trace_end)) > 0,
         spi_flash_init     = None if args.spi_flash_init is None else get_mem_data(args.spi_flash_init, endianness="big"),
+        with_axi_gpio      = args.with_axi_gpio,
+        with_axi_ram       = args.with_axi_ram,
         **soc_kwargs)
     if ram_boot_address is not None:
         if ram_boot_address == 0:
