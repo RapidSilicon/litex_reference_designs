@@ -4,20 +4,20 @@ This Makefile is designed to automate the Simulation of all the example designs.
 
 You can use the folowing commands for each example:
 
-## Hello WOrld
+## hello world
 
 ```
-make -f Makefile HELLO_WORLD
+make -f Makefile hello_world
 ```
 
-## AXI_RAM
+## axi_ram
 
 ```
-make -f Makefile AXI_RAM
+make -f Makefile axi_ram
 ```
-## AXI_GPIO
+## axi_gpio
 
 
 ```
-make -f Makefile AXI_GPIO
+make -f Makefile axi_gpio
 ```
