@@ -83,7 +83,7 @@ def main():
         tcl.append(f"add_library_path {rtl_path}")
         # Add Sources.
 #        for f, typ, lib in file_name:
-#            tcl.append(f"add_design_file {axi_ram.v}")
+        tcl.append(f"add_design_file {'axi_ram.v'}")
         # Set Top Module.
         tcl.append(f"set_top_module {args.build_name}")
         # Add Timings Constraints.
