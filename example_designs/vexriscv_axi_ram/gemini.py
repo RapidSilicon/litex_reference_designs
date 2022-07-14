@@ -9,7 +9,6 @@ from litex.build.io import CRG
 from litex.build.generic_platform import Pins, Subsignal
 from litex.build.osfpga import OSFPGAPlatform
 
-from litex_rs.cores.axi_gpio import AXIGPIO
 from litex_rs.cores.axi_ram  import AXIRAM
 
 from litex.soc.integration.soc_core import *
@@ -28,11 +27,6 @@ _io = [
         Subsignal("tx", Pins(1)),
         Subsignal("rx", Pins(1)),
     ),
-    ("gpio", 0,
-        Subsignal("oe", Pins(32)),
-        Subsignal("o",  Pins(32)),
-        Subsignal("i",  Pins(32)),
-    ),
 ]
 
 class Platform(OSFPGAPlatform):
@@ -44,7 +38,6 @@ class Platform(OSFPGAPlatform):
 class BaseSoC(SoCCore):
     def __init__(self, platform, 
         sys_clk_freq  = int(10e6),
-        with_axi_gpio = False,
         with_axi_ram  = False,
         **kwargs):
         
@@ -54,16 +47,6 @@ class BaseSoC(SoCCore):
         # SoCCore ----------------------------------------------------------------------------------
         SoCCore.__init__(self, platform, sys_clk_freq, ident="LiteX Test SoC on OS-FPGA", **kwargs)
 
-
-        # AXI GPIO ---------------------------------------------------------------------------------
-        if with_axi_gpio:
-            self.submodules.axi_gpio = AXIGPIO(platform, platform.request("gpio"))
-            self.bus.add_slave(name="axi_gpio", slave=self.axi_gpio.bus, region=SoCRegion(
-                origin = 0xf0020000,
-                size   = 1024,
-                cached = False,
-                )
-            )
 
         # AXI RAM-----------------------------------------------------------------------------------
         if axiram:
@@ -84,7 +67,6 @@ def main():
     target_group.add_argument("--build",         action="store_true", help="Build design.")
     target_group.add_argument("--toolchain",     default="raptor",    help="FPGA toolchain.")
     target_group.add_argument("--device",        default="gemini",    help="FPGA device.")
-    target_group.add_argument("--with-axi-gpio", action="store_true", help="Add AXI-GPIO (32-bit) to design.")
     target_group.add_argument("--with-axi-ram",  action="store_true", help="Add AXI-RAM to design.")
     builder_args(parser)
     soc_core_args(parser)
@@ -92,7 +74,6 @@ def main():
 
     platform = Platform(toolchain=args.toolchain, device=args.device)
     soc      = BaseSoC(platform,
-        with_axi_gpio = args.with_axi_gpio,
         with_axi_ram  = args.with_axi_ram,
         **soc_core_argdict(args)
     )

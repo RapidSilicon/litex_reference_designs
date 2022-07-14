@@ -46,7 +46,6 @@ from liteeth.common import *
 
 from litescope import LiteScopeAnalyzer
 
-from litex_rs.cores.axi_gpio import AXIGPIO
 from litex_rs.cores.axi_ram  import AXIRAM
 
 # IOs ----------------------------------------------------------------------------------------------
@@ -159,7 +158,6 @@ class SimSoC(SoCCore):
         with_spi_flash        = False,
         spi_flash_init        = [],
         with_gpio             = False,
-        with_axi_gpio         = False,
         with_axi_ram          = False,
         sim_debug             = False,
         trace_reset_on        = False,
@@ -327,16 +325,6 @@ class SimSoC(SoCCore):
                 clock_domain = "sys",
                 csr_csv      = "analyzer.csv")
 
-        # AXI GPIO ---------------------------------------------------------------------------------
-        if with_axi_gpio:
-            self.submodules.axi_gpio = AXIGPIO(platform, platform.request("gpio"))
-            self.bus.add_slave(name="axi_gpio", slave=self.axi_gpio.bus, region=SoCRegion(
-                origin = 0xf0020000,
-                size   = 1024,
-                cached = False,
-                )
-            )
-
         # AXI RAM ----------------------------------------------------------------------------------
         if with_axi_ram:
             self.submodules.axi_ram = AXIRAM(platform, pads=None)
@@ -412,7 +400,6 @@ def sim_args(parser):
     parser.add_argument("--sim-debug",            action="store_true",     help="Add simulation debugging modules.")
     parser.add_argument("--gtkwave-savefile",     action="store_true",     help="Generate GTKWave savefile.")
     parser.add_argument("--non-interactive",      action="store_true",     help="Run simulation without user input.")
-    parser.add_argument("--with-axi-gpio",        action="store_true",     help="Add AXI-GPIO (32-bit) to design.")
     parser.add_argument("--with-axi-ram",         action="store_true",     help="Add AXI-RAM to design.")
 
     
@@ -492,7 +479,6 @@ def main():
         sim_debug          = args.sim_debug,
         trace_reset_on     = int(float(args.trace_start)) > 0 or int(float(args.trace_end)) > 0,
         spi_flash_init     = None if args.spi_flash_init is None else get_mem_data(args.spi_flash_init, endianness="big"),
-        with_axi_gpio      = args.with_axi_gpio,
         with_axi_ram       = args.with_axi_ram,
         **soc_kwargs)
     if ram_boot_address is not None:
