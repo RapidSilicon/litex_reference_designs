@@ -13,5 +13,5 @@ python3 axi_converter.py --json-template
 
 Compilation with Raptor:
 ```
-raptor --batch --script=build.tcl
+raptor --batch --script Path to TCL script
 ```
