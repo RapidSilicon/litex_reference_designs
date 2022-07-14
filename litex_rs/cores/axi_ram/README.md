@@ -13,5 +13,5 @@ python3 axi_ram.py --json-template
 
 Compilation with Raptor:
 ```
-raptor --batch --script=build.tcl
+raptor --batch --script path to Tcl script
 ```
