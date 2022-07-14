@@ -3,7 +3,7 @@
 Run the following command to generate .tcl file and rtl:
 
 ```
-python3 axi_ram.py --build-dir=./ --build-name=axi_ram --build
+python3 axi_ram.py --build-name=axi_ram --build
 ```
 
 Run the following command to generate json template on terminal:
