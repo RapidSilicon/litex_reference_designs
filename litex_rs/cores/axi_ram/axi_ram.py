@@ -65,6 +65,8 @@ def main():
     if args.build:
 
         build_path = os.path.join(os.path.abspath(os.getcwd()), "build")
+        if not os.path.exists(build_path):
+            os.makedirs(build_path) 
 
         src_files = os.listdir(rtl_path)
         for file_name in src_files:
@@ -87,7 +89,7 @@ def main():
         # Add Timings Constraints.
 #        tcl.append(f"add_constraint_file {args.build_name}.sdc")
         # Run.
-         tcl.append("synthesize")
+        tcl.append("synthesize")
 #        tcl.append("packing")
 #        tcl.append("place")
 #        tcl.append("route")
@@ -95,9 +97,10 @@ def main():
 #        tcl.append("power")
 #        tcl.append("bitstream")
         # Generate .tcl.
-        with open("build.tcl", "w") as f:
-            f.write("\n".join(tcl))
+        tcl_path = os.path.join(build_path, "build.tcl")
 
+        with open(tcl_path, "w") as f:
+            f.write("\n".join(tcl))
 
 
 

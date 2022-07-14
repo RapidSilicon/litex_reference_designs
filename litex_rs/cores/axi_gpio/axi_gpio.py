@@ -59,17 +59,24 @@ def main():
     # Remove build extension when specified.
     args.build_name = os.path.splitext(args.build_name)[0]
 
+
+
+
     # Build
     if args.build:
 
         build_path = os.path.join(os.path.abspath(os.getcwd()), "build")
+        if not os.path.exists(build_path):
+            os.makedirs(build_path) 
 
         src_files = os.listdir(rtl_path)
         for file_name in src_files:
             full_file_name = os.path.join(rtl_path, file_name)
             if os.path.isfile(full_file_name):
-                shutil.copy(full_file_name, args.build_dir)
+                shutil.copy(full_file_name, build_path)
                 
+
+
         tcl = []
         # Create Design.
         tcl.append(f"create_design {args.build_name}")
@@ -79,13 +86,13 @@ def main():
         tcl.append(f"add_library_path {rtl_path}")
         # Add Sources.
 #        for f, typ, lib in file_name:
-        tcl.append(f"add_design_file {AXI4LITE_GPIO.sv}")
+        tcl.append(f"add_design_file {'AXI4LITE_GPIO.sv'}")
         # Set Top Module.
         tcl.append(f"set_top_module {'AXI4LITE_GPIO'}")
         # Add Timings Constraints.
 #        tcl.append(f"add_constraint_file {args.build_name}.sdc")
         # Run.
-         tcl.append("synthesize")
+        tcl.append("synthesize")
 #        tcl.append("packing")
 #        tcl.append("place")
 #        tcl.append("route")
@@ -93,7 +100,9 @@ def main():
 #        tcl.append("power")
 #        tcl.append("bitstream")
         # Generate .tcl.
-        with open("build.tcl", "w") as f:
+        tcl_path = os.path.join(build_path, "build.tcl")
+
+        with open(tcl_path, "w") as f:
             f.write("\n".join(tcl))
 
 
