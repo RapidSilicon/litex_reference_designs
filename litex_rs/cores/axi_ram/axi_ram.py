@@ -1,86 +1,109 @@
+#!/usr/bin/env python3
+
 # This file is Copyright (c) 2022 RapidSilicon.
 # SPDX-License-Identifier: TBD.
 
 import os
+import json
+import argparse
+import shutil
+
 
 from migen import *
 
-from litex.soc.interconnect import axi
+from litex.build.generic_platform import *
+from litex.build.osfpga import OSFPGAPlatform
 
-from litex.soc.integration.soc import *
-from litex.soc.integration.doc import AutoDoc, ModuleDoc
-from litex.soc.integration.soc import SoCRegion
+from litex.soc.interconnect import stream
+from litex.soc.interconnect.axi import *
 
-# Helpers ------------------------------------------------------------------------------------------
 
-class Open(Signal): pass
+# Build --------------------------------------------------------------------------------------------
 
-# AXI RAM -----------------------------------------------------------------------------------------
+def main():
+    parser = argparse.ArgumentParser(description="AXI Ram core.")
+    parser.formatter_class = lambda prog: argparse.ArgumentDefaultsHelpFormatter(prog,
+        max_help_position = 10,
+        width             = 120
+    )
 
-class AXIRAM(Module, AutoDoc, AutoCSR):
-    """LiteX Verilog RTL-based Axi_ram"""
-    def __init__(self, platform, pads, default_enable=0):
-        self.intro = ModuleDoc("""AXIRAM: A verilog RTL-based AXI RAM wrapped from Alex Forenchich's Verilog AXI library.""")
+    
 
-        self.bus  = bus = axi.AXILiteInterface(data_width=32)
+    # Build Parameters.
+    build_group = parser.add_argument_group(title="Build parameters")
+    build_group.add_argument("--build",         action="store_true", help="Build core.")
+    build_group.add_argument("--build-dir",     default="build",     help="Build directory.")
+    build_group.add_argument("--build-name",    default=None,        help="Build name.")
 
-        # # #
+    # JSON Import/Template
+    json_group = parser.add_argument_group(title="JSON parameters")
+    json_group.add_argument("--json",          help="Generate core from JSON file.")
+    json_group.add_argument("--json-template", action="store_true", help="Generate JSON template.")
 
-        # Verilog-RTL Instance.
-        self.specials += Instance("axi_ram",
-            # Clk/Rst.
-            i_clk           = ClockSignal("sys"),
-            i_rst           = ResetSignal("sys"),
+    args = parser.parse_args()
 
-            # AW AXI-Lite Channel.
-            i_s_axi_awid    = 0,
-            i_s_axi_awaddr  = bus.aw.addr,
-            i_s_axi_awlen   = 0,
-            i_s_axi_awsize  = 0,
-            i_s_axi_awburst = 0,
-            i_s_axi_awlock  = 0,
-            i_s_axi_awcache = 0,
-            i_s_axi_awprot  = 0,
-            i_s_axi_awvalid = bus.aw.valid,
-            o_s_axi_awready = bus.aw.ready,
+    # Import JSON (Optional) -----------------------------------------------------------------------
+    if args.json:
+        with open(args.json, 'rt') as f:
+            t_args = argparse.Namespace()
+            t_args.__dict__.update(json.load(f))
+            args = parser.parse_args(namespace=t_args)
 
-            # W AXI-Lite Channel.
-            i_s_axi_wdata   = bus.w.data,
-            i_s_axi_wstrb   = bus.w.strb,
-            i_s_axi_wlast   = 0,
-            i_s_axi_wvalid  = bus.w.valid,
-            o_s_axi_wready  = bus.w.ready,
+    # Create LiteX Core ----------------------------------------------------------------------------
+    platform   = OSFPGAPlatform("", io=[], toolchain="raptor")
 
-            # B AXI-Lite Channel.
-            o_s_axi_bid     = Open(),
-            o_s_axi_bresp   = bus.b.resp,
-            o_s_axi_bvalid  = bus.b.valid,
-            i_s_axi_bready  = bus.b.ready,
-            i_s_axi_arid    = 0,
 
-            # AR AXI-Lite Channel.
-            i_s_axi_araddr  = bus.ar.addr,
-            i_s_axi_arlen   = 0,
-            i_s_axi_arsize  = 0,
-            i_s_axi_arburst = 0,
-            i_s_axi_arlock  = 0,
-            i_s_axi_arcache = 0,
-            i_s_axi_arprot  = 0,
-            i_s_axi_arvalid = bus.ar.valid,
-            o_s_axi_arready = bus.ar.ready,
+    rtl_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "rtl")
 
-            # R AXI-Lite Channel.
-            o_s_axi_rid     = Open(),
-            o_s_axi_rdata   = bus.r.data,
-            o_s_axi_rresp   = bus.r.resp,
-            o_s_axi_rlast   = Open(),
-            o_s_axi_rvalid  = bus.r.valid,
-            i_s_axi_rready  = bus.r.ready,
-        )
-        
-        # Add Verilog-RTL Sources.
-        self.add_sources(platform)
+    # Enforce build name when not specified.
+    if args.build_name is None:
+        args.build_name = "AXI_RAM"
+    # Remove build extension when specified.
+    args.build_name = os.path.splitext(args.build_name)[0]
 
-    def add_sources(self, platform):
-        rtl_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "rtl")
-        platform.add_source(os.path.join(rtl_path, "axi_ram.v"))
+    # Build
+    if args.build:
+
+        build_path = os.path.join(os.path.abspath(os.getcwd()), "build")
+
+        src_files = os.listdir(rtl_path)
+        for file_name in src_files:
+            full_file_name = os.path.join(rtl_path, file_name)
+            if os.path.isfile(full_file_name):
+                shutil.copy(full_file_name, args.build_dir)
+                
+        tcl = []
+        # Create Design.
+        tcl.append(f"create_design {args.build_name}")
+        # Set Device.
+        tcl.append(f"target_device {'GEMINI'}")
+        # Add Include Path.
+        tcl.append(f"add_library_path {rtl_path}")
+        # Add Sources.
+#        for f, typ, lib in file_name:
+#            tcl.append(f"add_design_file {axi_ram.v}")
+        # Set Top Module.
+        tcl.append(f"set_top_module {args.build_name}")
+        # Add Timings Constraints.
+#        tcl.append(f"add_constraint_file {args.build_name}.sdc")
+        # Run.
+         tcl.append("synthesize")
+#        tcl.append("packing")
+#        tcl.append("place")
+#        tcl.append("route")
+#        tcl.append("sta")
+#        tcl.append("power")
+#        tcl.append("bitstream")
+        # Generate .tcl.
+        with open("build.tcl", "w") as f:
+            f.write("\n".join(tcl))
+
+
+
+
+    # Export JSON Template (Optional) --------------------------------------------------------------
+    if args.json_template:
+        print(json.dumps(vars(args), indent=4))
+
+if __name__ == "__main__":
+    main()

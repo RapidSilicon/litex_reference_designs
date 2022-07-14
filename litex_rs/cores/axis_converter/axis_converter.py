@@ -88,7 +88,7 @@ def main():
     core_in_width   = int(args.core_in_width)
     core_out_width  = int(args.core_out_width)
     core_user_width = int(args.core_user_width)
-    platform   = OSFPGAPlatform("", io=[], toolchain="raptor")
+    platform   = OSFPGAPlatform( io=[], device=gemini, toolchain="raptor")
     module     = AXISConverter(platform,
         in_width   = core_in_width,
         out_width  = core_out_width,

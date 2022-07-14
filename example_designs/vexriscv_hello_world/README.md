@@ -14,7 +14,7 @@ You can follow the below steps to generate the designs and simulate the applicat
 ## Generate Verilog for the LiteX design (No Simulation)
 
 ```
-python3 litex_sim_rs.py --cpu-type vexriscv --no-compile-gateware
+python3 litex_sim_rs.py --cpu-type=vexriscv --no-compile-gateware
 ```
 
 ## Generate and Simulate the verilog for the LiteX design
@@ -29,18 +29,18 @@ python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv -
 
 Run the following command to generate .bin file:
 ```
-python3 python3 test/demo/demo.py --build-path=build/sim
+python3 test/demo/demo.py --build-path=build/sim
 ```
 ### Simulating the application using Verilator
 
 Run the following command to execute your application code onto the processor:
 ```
-python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type vexriscv --ram-init=demo.bin --sim-debug
+python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --ram-init=demo.bin --sim-debug
 ```
 
 
 ## Output:
-![hello_sim.png](./../../Docs/Pictures/hello_sim.png)
+![hello_sim.png](./../../docs/hello_sim.png)
 
 ## Application
 This application code prints a Hello World onto the terminal via Uart.
