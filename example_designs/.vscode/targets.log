@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul 14 09:19:11 2022
+# Make data base, printed on Thu Jul 14 11:22:43 2022
 
 # Variables
 
@@ -41,7 +41,7 @@ GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /home/users/bilal.ahmed/rs_plugin/florent_branch/dev/litex_rs
+CURDIR := /home/users/bilal.ahmed/rs_plugin/florent_branch/dev/litex_rs/example_designs
 # makefile
 SHELL = /bin/sh
 # environment
@@ -52,8 +52,8 @@ _ = /usr/share/code/code
 JOURNAL_STREAM = 8:54862
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
-# makefile
-MAKEFILE_LIST := 
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
 # automatic
 @F = $(notdir $@)
 # environment
@@ -107,7 +107,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/1554200132/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 19161
+GIO_LAUNCHED_DESKTOP_FILE_PID = 34252
 # automatic
 %F = $(notdir $%)
 # environment
@@ -115,7 +115,7 @@ DISPLAY = :0
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-PWD = /home/users/bilal.ahmed/rs_plugin/florent_branch/dev/litex_rs
+PWD = /home/users/bilal.ahmed/rs_plugin/florent_branch/dev/litex_rs/example_designs
 # default
 .LOADED := 
 # environment
@@ -157,7 +157,7 @@ SHLVL = 0
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1554200132/vscode-ipc-42afcdf5-eee5-41ea-9740-8fc899e9c7f7.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1554200132/vscode-ipc-42bc5eb9-0078-4f26-a330-f415f601184b.sock
 # default
 MAKE_VERSION := 4.2.1
 # environment
@@ -165,7 +165,7 @@ USER = bilal.ahmed
 # environment
 LC_MONETARY = ur_PK
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := hello_world
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # automatic
@@ -227,11 +227,11 @@ LC_ADDRESS = ur_PK
 # environment
 LANG = C
 # environment
-VSCODE_PID = 19161
+VSCODE_PID = 34252
 # environment
 DBUS_STARTER_ADDRESS = unix:path=/run/user/1554200132/bus,guid=3457117ae95859b19ad058dd62cf9502
 # variable set hash-table stats:
-# Load=109/1024=11%, Rehash=0, Collisions=17/131=13%
+# Load=109/1024=11%, Rehash=0, Collisions=17/134=13%
 
 # Pattern-specific Variable Values
 
@@ -239,9 +239,9 @@ DBUS_STARTER_ADDRESS = unix:path=/run/user/1554200132/bus,guid=3457117ae95859b19
 
 # Directories
 
-# . (device 66306, inode 27402003): 10 files, no impossibilities.
+# . (device 66306, inode 27402108): 9 files, no impossibilities.
 
-# 10 files, no impossibilities in 1 directories.
+# 9 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -259,16 +259,29 @@ all:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2022-07-14 09:14:33.528437335
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
-# Not a target:
-makefile:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+axi_gpio:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 14):
+			mkdir -p litex_example_axi_gpio
+			python3 vexriscv_axi_gpio/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --with-axi-gpio --no-compile-gateware --sim-debug
+			python3 vexriscv_axi_gpio/test/demo/demo.py --build-path=build/sim
+			python3 vexriscv_axi_gpio/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --with-axi-gpio --ram-init=demo.bin --sim-debug --trace
+
+hello_world:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 2):
+			mkdir -p litex_example_hello_world
+			python3 vexriscv_hello_world/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
+			python3 vexriscv_hello_world/test/demo/demo.py --build-path=build/sim
+			python3 vexriscv_hello_world/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --ram-init=demo.bin --sim-debug
 
 # Not a target:
 .DEFAULT:
@@ -276,28 +289,37 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-GNUmakefile:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 20):
+		rm -rf litex_example*
+
+axi_ram:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 8):
+			mkdir -p litex_example_axi_ram
+			python3 vexriscv_axi_ram/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --with-axi-ram --no-compile-gateware --sim-debug
+			python3 vexriscv_axi_ram/test/demo/demo.py --build-path=build/sim
+			python3 vexriscv_axi_ram/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --with-axi-ram --ram-init=demo.bin --sim-debug
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/18=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 170 B / avg = 9 B
-# current buf: size = 8162 B / used = 170 B / count = 18 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 18 / storage = 211 B / avg = 11 B
+# current buf: size = 8162 B / used = 211 B / count = 18 / avg = 11 B
 
-# strcache performance: lookups = 21 / hit rate = 14%
+# strcache performance: lookups = 26 / hit rate = 30%
 # hash-table stats:
- 
-# Load=18/8192=0%, Rehash=0, Collisions=1/21=5%
-# Finished Make data base on Thu Jul 14 09:19:11 2022
+# Load=18/8192=0%, Rehash=0, Collisions=1/26=4%
+# Finished Make data base on Thu Jul 14 11:22:43 2022
 
  

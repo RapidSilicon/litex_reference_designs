@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/users/bilal.ahmed/rs_plugin/florent_branch/dev/litex_rs'
-make: Leaving directory '/home/users/bilal.ahmed/rs_plugin/florent_branch/dev/litex_rs'
- 
-make: *** No targets specified and no makefile found.  Stop.
-

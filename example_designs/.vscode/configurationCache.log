@@ -1,0 +1,1 @@
+{"buildTargets":["axi_gpio","axi_ram","clean","hello_world"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

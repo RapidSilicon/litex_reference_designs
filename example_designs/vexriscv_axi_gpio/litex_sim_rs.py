@@ -46,9 +46,10 @@ from liteeth.common import *
 
 from litescope import LiteScopeAnalyzer
 
-from litex_rs.cores.axi_gpio import AXIGPIO
+from litex_rs.cores.axi_gpio.python_wrapper import AXIGPIO
 
 # IOs ----------------------------------------------------------------------------------------------
+
 
 _io = [
     # Clk / Rst.

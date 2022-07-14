@@ -46,7 +46,7 @@ from liteeth.common import *
 
 from litescope import LiteScopeAnalyzer
 
-from litex_rs.cores.axi_ram  import AXIRAM
+from litex_rs.cores.axi_ram.python_wrapper  import AXIRAM
 
 # IOs ----------------------------------------------------------------------------------------------
 

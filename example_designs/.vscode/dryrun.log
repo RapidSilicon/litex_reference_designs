@@ -1,0 +1,8 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/users/bilal.ahmed/rs_plugin/florent_branch/dev/litex_rs/example_designs'
+mkdir -p litex_example_hello_world
+python3 vexriscv_hello_world/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --no-compile-gateware --sim-debug
+python3 vexriscv_hello_world/test/demo/demo.py --build-path=build/sim
+python3 vexriscv_hello_world/litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv --ram-init=demo.bin --sim-debug
+make: Leaving directory '/home/users/bilal.ahmed/rs_plugin/florent_branch/dev/litex_rs/example_designs'
+ 
