@@ -29,21 +29,17 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 project(litex_rs)
 
-message(STATUS "Install happening here ")
 
-set(Raptor_root /home/users/bilal.ahmed/litex_instll/litex_rs/litex_rs/)
-
-message(STATUS "Python install happening")
+message(STATUS "Litex_rs installation started")
 
 find_package(Python COMPONENTS Interpreter REQUIRED)
 
 message(${PROJECT_SOURCE_DIR})
 
-execute_process(COMMAND cp -R ${PROJECT_SOURCE_DIR}/Example_designs /nfs_scratch/scratch/litex/bilal_ahmed/raptr_instll/instll_dir/share/raptor/)
+execute_process(COMMAND cp -R ${PROJECT_SOURCE_DIR}/ ${CMAKE_INSTALL_PREFIX}/share)
 
-message(STATUS "Copy files to /usr/local/share/Raptor")
+message(STATUS "Copy Litex_rs files to ${CMAKE_INSTALL_PREFIX}/share")
 
-execute_process(COMMAND cp ${PROJECT_SOURCE_DIR}/setup.py ./)
+execute_process(COMMAND python3 litex_rs_setup.py --dev --install WORKING_DIRECTORY ${CMAKE_INSTALL_PREFIX}/share/litex_rs)
 
-execute_process(COMMAND python3 ${CMAKE_SOURCE_DIR}/litex_rs_setup.py --dev --install)
-
+message(STATUS "Litex_rs installation completed")

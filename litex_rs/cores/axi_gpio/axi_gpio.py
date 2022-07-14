@@ -76,16 +76,16 @@ def main():
         # Set Device.
         tcl.append(f"target_device {'GEMINI'}")
         # Add Include Path.
-        tcl.append(f"add_include_path {rtl_path}")
+        tcl.append(f"add_library_path {rtl_path}")
         # Add Sources.
 #        for f, typ, lib in file_name:
-#            tcl.append(f"add_design_file {f}")
+        tcl.append(f"add_design_file {AXI4LITE_GPIO.sv}")
         # Set Top Module.
-        tcl.append(f"set_top_module {args.build_name}")
+        tcl.append(f"set_top_module {'AXI4LITE_GPIO'}")
         # Add Timings Constraints.
-        tcl.append(f"add_constraint_file {args.build_name}.sdc")
+#        tcl.append(f"add_constraint_file {args.build_name}.sdc")
         # Run.
-        tcl.append("synth")
+         tcl.append("synthesize")
 #        tcl.append("packing")
 #        tcl.append("place")
 #        tcl.append("route")
