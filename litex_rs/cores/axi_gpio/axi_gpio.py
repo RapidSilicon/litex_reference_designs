@@ -55,7 +55,7 @@ def main():
 
     # Enforce build name when not specified.
     if args.build_name is None:
-        args.build_name = "AXI_GPIO"
+        args.build_name = "axi_gpio"
     # Remove build extension when specified.
     args.build_name = os.path.splitext(args.build_name)[0]
 
