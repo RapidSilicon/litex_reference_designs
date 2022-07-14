@@ -40,7 +40,7 @@ python3 litex_sim_rs.py --integrated-main-ram-size=0x10000 --cpu-type=vexriscv -
 
 
 ## Output:
-![hello_sim.png](./../../Docs/Pictures/hello_sim.png)
+![hello_sim.png](./../../docs/hello_sim.png)
 
 ## Application
 This application code prints a Hello World onto the terminal via Uart.

@@ -49,7 +49,7 @@ class BaseSoC(SoCCore):
 
 
         # AXI RAM-----------------------------------------------------------------------------------
-        if axiram:
+        if with_axi_ram:
             self.submodules.axi_ram = AXIRAM(platform, pads=None)
             self.bus.add_slave(name="axi_ram", slave=self.axi_ram.bus, region=SoCRegion(
                 origin = 0x50000000,
