@@ -3,7 +3,7 @@
 Run the following command to generate .tcl file and rtl:
 
 ```
-python3 axi_gpio.py --build-dir=./ --build-name=axi_gpio --build
+python3 axi_gpio.py --build-name=axi_gpio --build
 ```
 
 Run the following command to generate json template on terminal:
