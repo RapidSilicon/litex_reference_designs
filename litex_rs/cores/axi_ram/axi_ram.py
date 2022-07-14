@@ -72,7 +72,7 @@ def main():
         for file_name in src_files:
             full_file_name = os.path.join(rtl_path, file_name)
             if os.path.isfile(full_file_name):
-                shutil.copy(full_file_name, args.build_dir)
+                shutil.copy(full_file_name, build_path)
                 
         tcl = []
         # Create Design.
