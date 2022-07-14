@@ -86,7 +86,6 @@ def main():
         tcl.append(f"add_library_path {rtl_path}")
         tcl.append(f"add_library_ext .v .sv")
         
-        add_library_ext .v .sv
         # Add Sources.
 #        for f, typ, lib in file_name:
         tcl.append(f"add_design_file {'AXI4LITE_GPIO.sv'}")
