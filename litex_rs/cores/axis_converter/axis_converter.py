@@ -119,7 +119,7 @@ def main():
     # Export list of dependency files in JSON ------------------------------------------------------
     if args.json_files:
         dep_files = {
-            args.build_name : "verilog",
+            f"./{args.build_name}.v" : "verilog-2001", # FIXME: Define convention for .vhd/verilog standards.
         }
         print(json.dumps(dep_files, indent=4))
 
