@@ -3,12 +3,12 @@
 Run the following command to generate .tcl file and rtl:
 
 ```
-python3 axis_converter.py --build-dir=./ --build-name=axis_converter --build
+python3 axis_converter.py --build-name=axis_converter --build
 ```
 
 Run the following command to generate json template on terminal:
 ```
-python3 axi_converter.py --json-template
+python3 axis_converter.py --json-template
 ```
 
 Compilation with Raptor:
