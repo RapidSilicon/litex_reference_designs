@@ -74,6 +74,7 @@ def main():
     json_group = parser.add_argument_group(title="JSON parameters")
     json_group.add_argument("--json",          help="Generate core from JSON file.")
     json_group.add_argument("--json-template", action="store_true", help="Generate JSON template.")
+    json_group.add_argument("--json-files",    action="store_true", help="Generate list of files in JSON.")
 
     args = parser.parse_args()
 
@@ -114,6 +115,13 @@ def main():
     # Export JSON Template (Optional) --------------------------------------------------------------
     if args.json_template:
         print(json.dumps(vars(args), indent=4))
+
+    # Export list of dependency files in JSON ------------------------------------------------------
+    if args.json_files:
+        dep_files = {
+            f"./{args.build_name}.v" : "verilog-2001", # FIXME: Define convention for .vhd/verilog standards.
+        }
+        print(json.dumps(dep_files, indent=4))
 
 if __name__ == "__main__":
     main()
