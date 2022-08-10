@@ -8,13 +8,12 @@ from migen import *
 from litex.build.io import CRG
 from litex.build.generic_platform import Pins, Subsignal
 from litex.build.osfpga import OSFPGAPlatform
-
-from litex_rs.cores.axi_gpio.python_wrapper import AXIGPIO
-
 from litex.soc.integration.soc_core import *
 from litex.soc.integration.builder import *
-
 from litex.soc.integration.soc import *
+
+from RapidSilicon.IP.axi_ram.v1_0.litex_sim import AXIGPIO
+
 
 # Platform ---------------------------------------------------------------------------------
 

@@ -46,7 +46,8 @@ from liteeth.common import *
 
 from litescope import LiteScopeAnalyzer
 
-from litex_rs.cores.axi_gpio.python_wrapper import AXIGPIO
+from RapidSilicon.IP.axi_ram.v1_0.litex_sim import AXIGPIO
+
 
 # IOs ----------------------------------------------------------------------------------------------
 
