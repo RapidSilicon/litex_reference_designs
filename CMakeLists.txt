@@ -31,7 +31,7 @@ endif(NOT CMAKE_BUILD_TYPE)
 project(litex_rs)
 message(${PROJECT_SOURCE_DIR})
 
-message(STATUS "IP_Catalog installation started")
+message(STATUS "Litex_rs installation")
 find_package(Python COMPONENTS Interpreter REQUIRED)
-message(STATUS "IP_Catalog installation completed")
+
 
