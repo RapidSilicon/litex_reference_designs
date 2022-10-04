@@ -1,6 +1,6 @@
-# Litex RS 
+# Litex Refereence Designs 
 
-litex_rs is a python package providing example design for Raptor toolchain based upon litex.
+Litex Reference designs is a python package providing example design for Raptor toolchain based upon litex.
 
 ```
 ├── docs
