@@ -28,10 +28,10 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 
 
-project(litex_rs)
+project(litex_reference_designs)
 message(${PROJECT_SOURCE_DIR})
 
-message(STATUS "Litex_rs installation")
+message(STATUS "litex_reference_designs installed")
 find_package(Python COMPONENTS Interpreter REQUIRED)
 
 
