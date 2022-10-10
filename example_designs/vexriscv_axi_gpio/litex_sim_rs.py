@@ -46,7 +46,7 @@ from liteeth.common import *
 
 from litescope import LiteScopeAnalyzer
 
-from RapidSilicon.IP.axi_gpio.v1_0.litex_sim.axi_gpio_wrapper import AXIGPIO
+from  rapidsilicon.ip.axil_gpio.v1_0.litex_sim.axil_gpio_litex_wrapper import AXILITEGPIO
 
 
 # IOs ----------------------------------------------------------------------------------------------

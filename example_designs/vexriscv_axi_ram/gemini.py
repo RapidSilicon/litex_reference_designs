@@ -12,7 +12,7 @@ from litex.soc.integration.soc_core import *
 from litex.soc.integration.builder import *
 from litex.soc.integration.soc import *
 
-from RapidSilicon.IP.axi_ram.v1_0.litex_sim.axi_ram_wrapper import AXIRAM
+from rapidsilicon.ip.axi_ram.v1_0.litex_sim.axi_ram_litex_wrapper import AXIRAM
 
 
 # Platform ---------------------------------------------------------------------------------
