@@ -76,50 +76,50 @@ module vex_soc (
     wire   	      	vexriscv_jtag_tdo;
     wire	[3:0] 	vexriscv_dBusAxi_ar_payload_region;
     wire   	      	vexriscv_dBusAxi_w_payload_last;
-	wire			vexriscv_dBusAxi_aw_payload_user;
-	wire			vexriscv_dBusAxi_w_payload_user;
-	wire			vexriscv_dBusAxi_b_payload_user;
-	wire			vexriscv_dBusAxi_ar_payload_user;
-	wire			vexriscv_dBusAxi_r_payload_user;
+    wire   		vexriscv_dBusAxi_aw_payload_user;
+    wire		vexriscv_dBusAxi_w_payload_user;
+    wire		vexriscv_dBusAxi_b_payload_user;
+    wire		vexriscv_dBusAxi_ar_payload_user;
+    wire		vexriscv_dBusAxi_r_payload_user;
     wire   	      	vexriscv5;
     wire   	      	vexriscv6;
-    reg     [7:0]   axi4_m00_axi_awid;
-    reg     [31:0]  axi4_m00_axi_awaddr;
-    reg     [7:0]   axi4_m00_axi_awlen;
-    reg     [2:0]   axi4_m00_axi_awsize;
-    reg     [1:0]   axi4_m00_axi_awburst;
-    reg             axi4_m00_axi_awlock;
-    reg     [3:0]   axi4_m00_axi_awcache;
-    reg     [2:0]   axi4_m00_axi_awprot;
-    reg             axi4_m00_axi_awvalid;
-    wire            axi4_m00_axi_awready;
-    reg     [31:0]  axi4_m00_axi_wdata;
-    reg     [3:0]   axi4_m00_axi_wstrb;
-    reg             axi4_m00_axi_wlast;
-    reg             axi4_m00_axi_wvalid;
-    wire            axi4_m00_axi_wready;
-    wire    [7:0]   axi4_m00_axi_bid;
-    wire    [1:0]   axi4_m00_axi_bresp;
-    wire            axi4_m00_axi_bvalid;
-    reg             axi4_m00_axi_bready;
-    reg     [7:0]   axi4_m00_axi_arid;
-    reg     [31:0]  axi4_m00_axi_araddr;
-    reg     [7:0]   axi4_m00_axi_arlen;
-    reg     [2:0]   axi4_m00_axi_arsize;
-    reg     [1:0]   axi4_m00_axi_arburst;
-    reg             axi4_m00_axi_arlock;
-    reg     [3:0]   axi4_m00_axi_arcache;
-    reg     [2:0]   axi4_m00_axi_arprot;
-    reg             axi4_m00_axi_arvalid;
-    wire            axi4_m00_axi_arready;
-    wire    [7:0]   axi4_m00_axi_rid;
-    wire    [31:0]  axi4_m00_axi_rdata;
-    wire    [1:0]   axi4_m00_axi_rresp;
-    wire            axi4_m00_axi_rlast;
-    wire            axi4_m00_axi_rvalid;
-    reg             axi4_m00_axi_rready;
-    wire			axi4_m00_axi_buser;
-    wire 			axi4_m00_axi_ruser;
+    reg     	[7:0]  	axi4_m00_axi_awid;
+    reg     	[31:0] 	axi4_m00_axi_awaddr;
+    reg     	[7:0]   axi4_m00_axi_awlen;
+    reg     	[2:0]   axi4_m00_axi_awsize;
+    reg     	[1:0]   axi4_m00_axi_awburst;
+    reg        	    	axi4_m00_axi_awlock;
+    reg     	[3:0]   axi4_m00_axi_awcache;
+    reg     	[2:0]   axi4_m00_axi_awprot;
+    reg             	axi4_m00_axi_awvalid;
+    wire       	     	axi4_m00_axi_awready;
+    reg     	[31:0]  axi4_m00_axi_wdata;
+    reg     	[3:0]   axi4_m00_axi_wstrb;
+    reg      	       	axi4_m00_axi_wlast;
+    reg             	axi4_m00_axi_wvalid;
+    wire            	axi4_m00_axi_wready;
+    wire    	[7:0]   axi4_m00_axi_bid;
+    wire    	[1:0]   axi4_m00_axi_bresp;
+    wire            	axi4_m00_axi_bvalid;
+    reg             	axi4_m00_axi_bready;
+    reg     	[7:0]   axi4_m00_axi_arid;
+    reg     	[31:0]  axi4_m00_axi_araddr;
+    reg     	[7:0]   axi4_m00_axi_arlen;
+    reg     	[2:0]   axi4_m00_axi_arsize;
+    reg     	[1:0]   axi4_m00_axi_arburst;
+    reg             	axi4_m00_axi_arlock;
+    reg     	[3:0]   axi4_m00_axi_arcache;
+    reg     	[2:0]   axi4_m00_axi_arprot;
+    reg             	axi4_m00_axi_arvalid;
+    wire            	axi4_m00_axi_arready;
+    wire    	[7:0]   axi4_m00_axi_rid;
+    wire    	[31:0]  axi4_m00_axi_rdata;
+    wire    	[1:0]   axi4_m00_axi_rresp;
+    wire            	axi4_m00_axi_rlast;
+    wire            	axi4_m00_axi_rvalid;
+    reg             	axi4_m00_axi_rready;
+    wire		axi4_m00_axi_buser;
+    wire 		axi4_m00_axi_ruser;
 
 	
 //------	-Ram--	---------------    
@@ -165,94 +165,94 @@ module vex_soc (
 //---------------VexRiscv----------------
 
 VexRiscvAxi4 cpu(
-	.clk						(clk),
+	.clk					(clk),
 	.dBusAxi_ar_ready			(vexriscv_dBusAxi_ar_ready),
 	.dBusAxi_aw_ready			(vexriscv_dBusAxi_aw_ready),
-	.dBusAxi_b_payload_id		(vexriscv_dBusAxi_b_payload_id),
-	.dBusAxi_b_payload_resp		(vexriscv_dBusAxi_b_payload_resp),
+	.dBusAxi_b_payload_id			(vexriscv_dBusAxi_b_payload_id),
+	.dBusAxi_b_payload_resp			(vexriscv_dBusAxi_b_payload_resp),
 	.dBusAxi_b_valid			(vexriscv_dBusAxi_b_valid),
-	.dBusAxi_r_payload_data		(vexriscv_dBusAxi_r_payload_data),
-	.dBusAxi_r_payload_id		(vexriscv_dBusAxi_r_payload_id),
-	.dBusAxi_r_payload_last		(vexriscv_dBusAxi_r_payload_last),
-	.dBusAxi_r_payload_resp		(vexriscv_dBusAxi_r_payload_resp),
+	.dBusAxi_r_payload_data			(vexriscv_dBusAxi_r_payload_data),
+	.dBusAxi_r_payload_id			(vexriscv_dBusAxi_r_payload_id),
+	.dBusAxi_r_payload_last			(vexriscv_dBusAxi_r_payload_last),
+	.dBusAxi_r_payload_resp			(vexriscv_dBusAxi_r_payload_resp),
 	.dBusAxi_r_valid			(vexriscv_dBusAxi_r_valid),
 	.dBusAxi_w_ready			(vexriscv_dBusAxi_w_ready),
-	.debugReset					(vexriscv_debugReset),
+	.debugReset				(vexriscv_debugReset),
 	.externalInterrupt			(vexriscv_externalInterrupt),
 	.iBusAxi_ar_ready			(vexriscv_iBusAxi_ar_ready),
-	.iBusAxi_r_payload_data		(vexriscv_iBusAxi_r_payload_data),
-	.iBusAxi_r_payload_id		(vexriscv_iBusAxi_r_payload_id),
-	.iBusAxi_r_payload_last		(vexriscv_iBusAxi_r_payload_last),
-	.iBusAxi_r_payload_resp		(vexriscv_iBusAxi_r_payload_resp),
+	.iBusAxi_r_payload_data			(vexriscv_iBusAxi_r_payload_data),
+	.iBusAxi_r_payload_id			(vexriscv_iBusAxi_r_payload_id),
+	.iBusAxi_r_payload_last			(vexriscv_iBusAxi_r_payload_last),
+	.iBusAxi_r_payload_resp			(vexriscv_iBusAxi_r_payload_resp),
 	.iBusAxi_r_valid			(vexriscv_iBusAxi_r_valid),
-	.jtag_tck					(vexriscv_jtag_tck),
-	.jtag_tdi					(vexriscv_jtag_tdi),
-	.jtag_tms					(vexriscv_jtag_tms),
-	.reset						(reset),
+	.jtag_tck				(vexriscv_jtag_tck),
+	.jtag_tdi				(vexriscv_jtag_tdi),
+	.jtag_tms				(vexriscv_jtag_tms),
+	.reset					(reset),
 	.softwareInterrupt			(1'd0),
 	.timerInterrupt				(1'd0),
-	.dBusAxi_ar_payload_addr	(vexriscv_dBusAxi_ar_payload_addr),
-	.dBusAxi_ar_payload_burst	(vexriscv_dBusAxi_ar_payload_burst),
-	.dBusAxi_ar_payload_cache	(vexriscv_dBusAxi_ar_payload_cache),
-	.dBusAxi_ar_payload_id		(vexriscv_dBusAxi_ar_payload_id),
-	.dBusAxi_ar_payload_len		(vexriscv_dBusAxi_ar_payload_len),
-	.dBusAxi_ar_payload_lock	(vexriscv_dBusAxi_ar_payload_lock),
-	.dBusAxi_ar_payload_prot	(vexriscv_dBusAxi_ar_payload_prot),
-	.dBusAxi_ar_payload_qos		(vexriscv_dBusAxi_ar_payload_qos),
-	.dBusAxi_ar_payload_region	(vexriscv_dBusAxi_ar_payload_region),
-	.dBusAxi_ar_payload_size	(vexriscv_dBusAxi_ar_payload_size),
+	.dBusAxi_ar_payload_addr		(vexriscv_dBusAxi_ar_payload_addr),
+	.dBusAxi_ar_payload_burst		(vexriscv_dBusAxi_ar_payload_burst),
+	.dBusAxi_ar_payload_cache		(vexriscv_dBusAxi_ar_payload_cache),
+	.dBusAxi_ar_payload_id			(vexriscv_dBusAxi_ar_payload_id),
+	.dBusAxi_ar_payload_len			(vexriscv_dBusAxi_ar_payload_len),
+	.dBusAxi_ar_payload_lock		(vexriscv_dBusAxi_ar_payload_lock),
+	.dBusAxi_ar_payload_prot		(vexriscv_dBusAxi_ar_payload_prot),
+	.dBusAxi_ar_payload_qos			(vexriscv_dBusAxi_ar_payload_qos),
+	.dBusAxi_ar_payload_region		(vexriscv_dBusAxi_ar_payload_region),
+	.dBusAxi_ar_payload_size		(vexriscv_dBusAxi_ar_payload_size),
 	.dBusAxi_ar_valid			(vexriscv_dBusAxi_ar_valid),
-	.dBusAxi_aw_payload_addr	(vexriscv_dBusAxi_aw_payload_addr),
-	.dBusAxi_aw_payload_burst	(vexriscv_dBusAxi_aw_payload_burst),
-	.dBusAxi_aw_payload_cache	(vexriscv_dBusAxi_aw_payload_cache),
-	.dBusAxi_aw_payload_id		(vexriscv_dBusAxi_aw_payload_id),
-	.dBusAxi_aw_payload_len		(vexriscv_dBusAxi_aw_payload_len),
-	.dBusAxi_aw_payload_lock	(vexriscv_dBusAxi_aw_payload_lock),
-	.dBusAxi_aw_payload_prot	(vexriscv_dBusAxi_aw_payload_prot),
-	.dBusAxi_aw_payload_qos		(vexriscv_dBusAxi_aw_payload_qos),
-	.dBusAxi_aw_payload_region	(vexriscv6),
-	.dBusAxi_aw_payload_size	(vexriscv_dBusAxi_aw_payload_size),
+	.dBusAxi_aw_payload_addr		(vexriscv_dBusAxi_aw_payload_addr),
+	.dBusAxi_aw_payload_burst		(vexriscv_dBusAxi_aw_payload_burst),
+	.dBusAxi_aw_payload_cache		(vexriscv_dBusAxi_aw_payload_cache),
+	.dBusAxi_aw_payload_id			(vexriscv_dBusAxi_aw_payload_id),
+	.dBusAxi_aw_payload_len			(vexriscv_dBusAxi_aw_payload_len),
+	.dBusAxi_aw_payload_lock		(vexriscv_dBusAxi_aw_payload_lock),
+	.dBusAxi_aw_payload_prot		(vexriscv_dBusAxi_aw_payload_prot),
+	.dBusAxi_aw_payload_qos			(vexriscv_dBusAxi_aw_payload_qos),
+	.dBusAxi_aw_payload_region		(vexriscv6),
+	.dBusAxi_aw_payload_size		(vexriscv_dBusAxi_aw_payload_size),
 	.dBusAxi_aw_valid			(vexriscv_dBusAxi_aw_valid),
 	.dBusAxi_b_ready			(vexriscv_dBusAxi_b_ready),
 	.dBusAxi_r_ready			(vexriscv_dBusAxi_r_ready),
-	.dBusAxi_w_payload_data		(vexriscv_dBusAxi_w_payload_data),
-	.dBusAxi_w_payload_last		(vexriscv_dBusAxi_w_payload_last),
-	.dBusAxi_w_payload_strb		(vexriscv_dBusAxi_w_payload_strb),
+	.dBusAxi_w_payload_data			(vexriscv_dBusAxi_w_payload_data),
+	.dBusAxi_w_payload_last			(vexriscv_dBusAxi_w_payload_last),
+	.dBusAxi_w_payload_strb			(vexriscv_dBusAxi_w_payload_strb),
 	.dBusAxi_w_valid			(vexriscv_dBusAxi_w_valid),
-	.iBusAxi_ar_payload_addr	(vexriscv_iBusAxi_ar_payload_addr),
-	.iBusAxi_ar_payload_burst	(vexriscv_iBusAxi_ar_payload_burst),
-	.iBusAxi_ar_payload_cache	(vexriscv_iBusAxi_ar_payload_cache),
-	.iBusAxi_ar_payload_id		(vexriscv_iBusAxi_ar_payload_id),
-	.iBusAxi_ar_payload_len		(vexriscv_iBusAxi_ar_payload_len),
-	.iBusAxi_ar_payload_lock	(vexriscv_iBusAxi_ar_payload_lock),
-	.iBusAxi_ar_payload_prot	(vexriscv_iBusAxi_ar_payload_prot),
-	.iBusAxi_ar_payload_qos		(vexriscv_iBusAxi_ar_payload_qos),
-	.iBusAxi_ar_payload_region	(vexriscv7),
-	.iBusAxi_ar_payload_size	(vexriscv_iBusAxi_ar_payload_size),
+	.iBusAxi_ar_payload_addr		(vexriscv_iBusAxi_ar_payload_addr),
+	.iBusAxi_ar_payload_burst		(vexriscv_iBusAxi_ar_payload_burst),
+	.iBusAxi_ar_payload_cache		(vexriscv_iBusAxi_ar_payload_cache),
+	.iBusAxi_ar_payload_id			(vexriscv_iBusAxi_ar_payload_id),
+	.iBusAxi_ar_payload_len			(vexriscv_iBusAxi_ar_payload_len),
+	.iBusAxi_ar_payload_lock		(vexriscv_iBusAxi_ar_payload_lock),
+	.iBusAxi_ar_payload_prot		(vexriscv_iBusAxi_ar_payload_prot),
+	.iBusAxi_ar_payload_qos			(vexriscv_iBusAxi_ar_payload_qos),
+	.iBusAxi_ar_payload_region		(vexriscv7),
+	.iBusAxi_ar_payload_size		(vexriscv_iBusAxi_ar_payload_size),
 	.iBusAxi_ar_valid			(vexriscv_iBusAxi_ar_valid),
 	.iBusAxi_r_ready			(vexriscv_iBusAxi_r_ready),
-	.jtag_tdo					(vexriscv5),
+	.jtag_tdo				(vexriscv5),
 	.debug_resetOut				(vexriscv8));
 
 
 //-----------AXI4 full interconnect-----------------
 
 axi4_interconnect axi4(
-    .clk						(clk),
-    .rst						(reset),
+    .clk					(clk),
+    .rst					(reset),
 	//-----------Slave-------------------
     .s00_axi_awid				(axi4_s00_axi_awid),
     .s00_axi_awaddr				(vexriscv_dBusAxi_aw_payload_addr),
     .s00_axi_awlen				(vexriscv_dBusAxi_aw_payload_len),
     .s00_axi_awsize				(vexriscv_dBusAxi_aw_payload_size),
-    .s00_axi_awburst			(vexriscv_dBusAxi_aw_payload_burst),
+    .s00_axi_awburst				(vexriscv_dBusAxi_aw_payload_burst),
     .s00_axi_awlock				(vexriscv_dBusAxi_aw_payload_lock),
-    .s00_axi_awcache			(vexriscv_dBusAxi_aw_payload_cache),
+    .s00_axi_awcache				(vexriscv_dBusAxi_aw_payload_cache),
     .s00_axi_awprot				(vexriscv_dBusAxi_aw_payload_prot),
     .s00_axi_awqos				(vexriscv_dBusAxi_aw_payload_qos),
     .s00_axi_awuser				(vexriscv_dBusAxi_aw_payload_user),
-    .s00_axi_awvalid			(vexriscv_dBusAxi_aw_valid),
-    .s00_axi_awready			(vexriscv_dBusAxi_aw_ready),
+    .s00_axi_awvalid				(vexriscv_dBusAxi_aw_valid),
+    .s00_axi_awready				(vexriscv_dBusAxi_aw_ready),
     .s00_axi_wdata				(vexriscv_dBusAxi_w_payload_data),
     .s00_axi_wstrb				(vexriscv_dBusAxi_w_payload_strb),
     .s00_axi_wlast				(vexriscv_dBusAxi_w_payload_last),
@@ -268,14 +268,14 @@ axi4_interconnect axi4(
     .s00_axi_araddr				(vexriscv_dBusAxi_ar_payload_addr),
     .s00_axi_arlen				(vexriscv_dBusAxi_ar_payload_len),
     .s00_axi_arsize				(vexriscv_dBusAxi_ar_payload_size),
-    .s00_axi_arburst			(vexriscv_dBusAxi_ar_payload_burst),
+    .s00_axi_arburst				(vexriscv_dBusAxi_ar_payload_burst),
     .s00_axi_arlock				(vexriscv_dBusAxi_ar_payload_lock),
-    .s00_axi_arcache			(vexriscv_dBusAxi_ar_payload_cache),
+    .s00_axi_arcache				(vexriscv_dBusAxi_ar_payload_cache),
     .s00_axi_arprot				(vexriscv_dBusAxi_ar_payload_prot),
     .s00_axi_arqos				(vexriscv_dBusAxi_ar_payload_qos),
     .s00_axi_aruser				(vexriscv_dBusAxi_ar_payload_user),
-    .s00_axi_arvalid			(vexriscv_dBusAxi_ar_valid),
-    .s00_axi_arready			(vexriscv_dBusAxi_ar_ready),
+    .s00_axi_arvalid				(vexriscv_dBusAxi_ar_valid),
+    .s00_axi_arready				(vexriscv_dBusAxi_ar_ready),
     .s00_axi_rid				(vexriscv_dBusAxi_r_payload_id),
     .s00_axi_rdata				(vexriscv_dBusAxi_r_payload_data),
     .s00_axi_rresp				(vexriscv_dBusAxi_r_payload_resp),
@@ -288,15 +288,15 @@ axi4_interconnect axi4(
     .m00_axi_awaddr				(axi4_m00_axi_awaddr),
     .m00_axi_awlen				(axi4_m00_axi_awlen),
     .m00_axi_awsize				(axi4_m00_axi_awsize),
-    .m00_axi_awburst			(axi4_m00_axi_awburst),
+    .m00_axi_awburst				(axi4_m00_axi_awburst),
     .m00_axi_awlock				(axi4_m00_axi_awlock),
-    .m00_axi_awcache			(axi4_m00_axi_awcache),
+    .m00_axi_awcache				(axi4_m00_axi_awcache),
     .m00_axi_awprot				(axi4_m00_axi_awprot),
     .m00_axi_awqos				(axi4_m00_axi_awqos),
-    .m00_axi_awregion			(axi4_m00_axi_awregion),
+    .m00_axi_awregion				(axi4_m00_axi_awregion),
     .m00_axi_awuser				(axi4_m00_axi_awuser),
-    .m00_axi_awvalid			(axi4_m00_axi_awvalid),
-    .m00_axi_awready			(axi4_m00_axi_awready),
+    .m00_axi_awvalid				(axi4_m00_axi_awvalid),
+    .m00_axi_awready				(axi4_m00_axi_awready),
     .m00_axi_wdata				(axi4_m00_axi_wdata),
     .m00_axi_wstrb				(axi4_m00_axi_wstrb),
     .m00_axi_wlast				(axi4_m00_axi_wlast),
@@ -312,15 +312,15 @@ axi4_interconnect axi4(
     .m00_axi_araddr				(axi4_m00_axi_araddr),
     .m00_axi_arlen				(axi4_m00_axi_arlen),
     .m00_axi_arsize				(axi4_m00_axi_arsize),
-    .m00_axi_arburst			(axi4_m00_axi_arburst),
+    .m00_axi_arburst				(axi4_m00_axi_arburst),
     .m00_axi_arlock				(axi4_m00_axi_arlock),
-    .m00_axi_arcache			(axi4_m00_axi_arcache),
+    .m00_axi_arcache				(axi4_m00_axi_arcache),
     .m00_axi_arprot				(axi4_m00_axi_arprot),
     .m00_axi_arqos				(axi4_m00_axi_arqos),
-    .m00_axi_arregion			(axi4_m00_axi_arregion),
+    .m00_axi_arregion				(axi4_m00_axi_arregion),
     .m00_axi_aruser				(axi4_m00_axi_aruser),
-    .m00_axi_arvalid			(axi4_m00_axi_arvalid),
-    .m00_axi_arready			(axi4_m00_axi_arready),
+    .m00_axi_arvalid				(axi4_m00_axi_arvalid),
+    .m00_axi_arready				(axi4_m00_axi_arready),
     .m00_axi_rid				(axi4_m00_axi_rid),
     .m00_axi_rdata				(axi4_m00_axi_rdata),
     .m00_axi_rresp				(axi4_m00_axi_rresp),
@@ -332,8 +332,8 @@ axi4_interconnect axi4(
 //-----------Instruction AXI RAM----------
 
 axi_ram ram_inst(
-    .clk						(clk),
-    .rst						(reset),
+    .clk					(clk),
+    .rst					(reset),
     .s_axi_awid					(ram_s_axi_awid),
     .s_axi_awaddr				(ram_s_axi_awaddr),
     .s_axi_awlen				(ram_s_axi_awlen),
@@ -373,8 +373,8 @@ axi_ram ram_inst(
 //-----------Peripheral AXI RAM---------------
 
 axi_ram_per ram_periph(
-    .clk						(clk),
-    .rst						(reset),
+    .clk					(clk),
+    .rst					(reset),
     .s_axi_awid					(axi4_m00_axi_awid),
     .s_axi_awaddr				(axi4_m00_axi_awaddr),
     .s_axi_awlen				(axi4_m00_axi_awlen),
