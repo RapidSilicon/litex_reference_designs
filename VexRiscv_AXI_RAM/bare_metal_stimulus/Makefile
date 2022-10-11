@@ -74,8 +74,6 @@ OBJS := $(addprefix $(OBJDIR)/,$(OBJS))
 
 all: $(OBJDIR)/$(PROJ_NAME).elf $(OBJDIR)/$(PROJ_NAME).hex $(OBJDIR)/$(PROJ_NAME).asm $(OBJDIR)/$(PROJ_NAME).v
 	# The below conversion is successful with the riscv64-unknown-elf-gcc-10.1.0-2020.08.2-x86_64-linux-ubuntu14 toolchain as tested.
-	# Make sure to put this new formed .hex file into the "readmemh" block in the instruction AXI_RAM named as axi_ram.v
-	# riscv64-unknown-elf-elf2hex --bit-width 32 --input ./build/$(PROJ_NAME).elf --output ./build/$(PROJ_NAME)_32.hex
 
 $(OBJDIR)/%.elf: $(OBJS) | $(OBJDIR)
 	$(RISCV_CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LIBS)
@@ -119,9 +117,3 @@ clean:
 	find $(OBJDIR) -type f -name '*.o' -print0 | xargs -0 -r rm
 
 .SECONDARY: $(OBJS)
-
-# Type out the following command to initiate VCS for the design
-
-# vcs -ignore initializer_driver_checks testbench.v vex_soc.v axi_ram.v VexRiscvAxi4.v axi4_interconnect.v axi_interconnect.v arbiter.v priority_encoder.v axi_ram_per.v -sverilog -debug_all -full64 +vcs+lic+wait && ./simv
- 
-
