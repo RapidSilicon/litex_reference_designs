@@ -73,7 +73,6 @@ OBJS := $(addprefix $(OBJDIR)/,$(OBJS))
 
 
 all: $(OBJDIR)/$(PROJ_NAME).elf $(OBJDIR)/$(PROJ_NAME).hex $(OBJDIR)/$(PROJ_NAME).asm $(OBJDIR)/$(PROJ_NAME).v
-	# The below conversion is successful with the riscv64-unknown-elf-gcc-10.1.0-2020.08.2-x86_64-linux-ubuntu14 toolchain as tested.
 
 $(OBJDIR)/%.elf: $(OBJS) | $(OBJDIR)
 	$(RISCV_CC) $(CFLAGS) -o $@ $^ $(LDFLAGS) $(LIBS)
