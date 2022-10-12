@@ -6,16 +6,16 @@ This model consists of a VexRiscv CPU in an AXI4 implementation, connected to an
 ![vexriscv_ram.png](./../../docs/vexriscv_ram.png)
 
 ## VexRiscv CPU
-The VexriscV CPU is sourced from the opensource SpinalHDL's repository **Vexriscv** from [here](https://github.com/SpinalHDL/VexRiscv/blob/master/src/main/scala/vexriscv/demo/VexRiscvAxi4WithIntegratedJtag.scala) in a non-cached AXI4 configuration. This CPU is responsible for performing all the desireed operations on connected peripherals. 
+The VexriscV CPU is sourced from the opensource SpinalHDL's repository **Vexriscv** from [here](https://github.com/SpinalHDL/VexRiscv/blob/master/src/main/scala/vexriscv/demo/VexRiscvAxi4WithIntegratedJtag.scala) in a non-cached AXI4 configuration. This CPU is responsible for performing all the desired operations on connected peripherals. 
 
 ## AXI Inteconnect
-The AXI4 interconnect is sourced from the opensource GitHub [repository](https://github.com/alexforencich/verilog-axi/blob/master/rtl/axi_interconnect.v). This interconnect is only connected between the peripherals and the CPU and not with the RAM that is serving the purpose of ROM for the CPU.
+This serves as the intercionnect between CPU and peripherals, this design includes a 1x1 Intterconnect configuration.
 
 ## AXI RAM
-The AXI4 Block Ram is sourced from the opensource GitHub [repository](https://github.com/alexforencich/verilog-axi/blob/master/rtl/axi_ram.v). Two of these RAMS are used in the model. One connected directly to the CPU without any interconnect serving the purpose of ROM. This ROM contains all the instructions for the CPU to perform the desired operations on the peripheral RAM connected via the AXI interconnect acting as a RW memory.
+Two instances of AXI4 Block Ram are used in this model. One connected directly to the CPU with the IBus to serve the purpose of ROM. This ROM is loaded with a hex file which contains the instructions for the CPU. The second instance is used as a peripheral for the system, the CPU attempts read and write accesses to this Ram.
 
 ## Generating HEX
-The instructions for the **ROM** are generated via bare metal C code the libraries for which are sourced from [this](https://github.com/SpinalHDL/VexRiscvSocSoftware) opensource GitHib repository. After writing the C code for the required functions on the connected peripheral AXI RAM, generate the **.elf** by running the makefile in the bare-metal directory as below:
+The instructions for the **ROM** are generated via bare metal C code, the libraries for which are sourced from [this](https://github.com/SpinalHDL/VexRiscvSocSoftware) opensource GitHib repository. After writing the C code for the required functions on the connected peripheral AXI RAM, generate the **.elf** by running the makefile in the bare-metal directory as below:
 ```
 echo RISCV_PATH={path-to-riscv-toolchain}
 make
