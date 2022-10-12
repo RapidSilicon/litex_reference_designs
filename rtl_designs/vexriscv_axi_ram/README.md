@@ -9,7 +9,7 @@ This model consists of a VexRiscv CPU in an AXI4 implementation, connected to an
 The VexriscV CPU is sourced from the opensource SpinalHDL's repository **Vexriscv** from [here](https://github.com/SpinalHDL/VexRiscv/blob/master/src/main/scala/vexriscv/demo/VexRiscvAxi4WithIntegratedJtag.scala) in a non-cached AXI4 configuration. This CPU is responsible for performing all the desired operations on connected peripherals. 
 
 ## AXI Inteconnect
-This serves as the intercionnect between CPU and peripherals, this design includes a 1x1 Intterconnect configuration.
+This serves as the interconnect between CPU and peripherals, this design includes a 1x1 Intterconnect configuration.
 
 ## AXI RAM
 Two instances of AXI4 Block Ram are used in this model. One connected directly to the CPU with the IBus to serve the purpose of ROM. This ROM is loaded with a hex file which contains the instructions for the CPU. The second instance is used as a peripheral for the system, the CPU attempts read and write accesses to this Ram.
