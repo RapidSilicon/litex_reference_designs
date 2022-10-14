@@ -19,7 +19,7 @@ module Tb;
         initial begin
             $dumpfile("tb.vcd");
             $dumpvars;
-            #6000  $finish;
+            #7000  $finish;
             $display("FInish called from testbench");
         end
     vex_soc soc(.clk(clock),
