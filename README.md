@@ -13,11 +13,6 @@ Litex Reference designs is a python package providing example design for Raptor 
 ```
 
 
-## Dependencies
-
-In order to generate litex based designs user needs to install litex dependencies from [here](https://github.com/enjoy-digital/litex/wiki/Installation).
-
-
 ## Raptor_example_designs
 
 This contains example designs with application code to run with LiteX. Every test has a separate README for assistance.
