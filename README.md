@@ -1,4 +1,4 @@
-# Litex Refereence Designs 
+# Litex Reference Designs 
 
 Litex Reference designs is a python package providing example design for Raptor toolchain based upon litex.
 
