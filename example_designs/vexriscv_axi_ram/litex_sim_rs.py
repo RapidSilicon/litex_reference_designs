@@ -9,6 +9,7 @@
 # Copyright (c) 2022 RapidSilicon.
 # SPDX-License-Identifier: BSD-2-Clause
 
+
 import sys
 import argparse
 
@@ -45,7 +46,6 @@ from liteeth.frontend.etherbone import LiteEthEtherbone
 from liteeth.common import *
 
 from litescope import LiteScopeAnalyzer
-
 from rapidsilicon.ip.axi_ram.v1_0.litex_sim.axi_ram_litex_wrapper import AXIRAM
 
 
@@ -328,13 +328,13 @@ class SimSoC(SoCCore):
 
         # AXI RAM ----------------------------------------------------------------------------------
         if with_axi_ram:
-            self.submodules.axi_ram = AXIRAM(platform, pads=None)
-            self.bus.add_slave(name="axi_ram", slave=self.axi_ram.bus, region=SoCRegion(
-                origin = 0x50000000,
-                size   = 1024,
-                cached = True,
-                )
-            )
+            s_axi= axi.AXIInterface(data_width=32, address_width=16)
+            self.submodules.axi_ram = AXIRAM(platform, s_axi)
+            self.bus.add_slave("axi_ram", s_axi, region=SoCRegion(
+            origin = 0x50000000,
+            size = 0x1000,
+            cached = True,
+            ))
 
 # Build --------------------------------------------------------------------------------------------
 
