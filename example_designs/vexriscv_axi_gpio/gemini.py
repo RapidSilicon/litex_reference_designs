@@ -54,8 +54,9 @@ class BaseSoC(SoCCore):
 
         # AXI GPIO ---------------------------------------------------------------------------------
         if with_axi_gpio:
-            self.submodules.axi_gpio = AXIGPIO(platform, platform.request("gpio"))
-            self.bus.add_slave(name="axi_gpio", slave=self.axi_gpio.bus, region=SoCRegion(
+            s_axil= axi.AXILiteInterface(data_width=32, address_width=32)
+            self.submodules.axi_gpio = AXILITEGPIO(platform, s_axil)
+            self.bus.add_slave("axi_gpio", s_axil, region=SoCRegion(
                 origin = 0xf0020000,
                 size   = 1024,
                 cached = False,
