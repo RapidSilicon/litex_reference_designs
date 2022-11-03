@@ -370,7 +370,7 @@ end
 
 
 initial begin
-	$readmemh("AXI_RAM_32.hex", mem);
+	$readmemh("rtl/AXI_RAM_32.hex", mem);
 end
 
 endmodule

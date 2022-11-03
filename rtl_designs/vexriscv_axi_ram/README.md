@@ -26,6 +26,32 @@ To generate the Verilog readable **.hex** file from this **.elf**, that the ROM 
 riscv64-unknown-elf-elf2hex --bit-width {requried bit-width} --input {path to the .elf file} --output {name and path for the new generated .hex file}
 ```
 Make sure to put the generated .hex into the $readmemh block in the instruction AXI memory i.e. ROM.
+
+## Run on Verilator
+Clone the repository and move to the **vexriscv_axi_ram** directory by the following commands: -
+```
+git clone git@github.com:RapidSilicon/litex_reference_designs.git
+cd litex_reference_designs/rtl_designs/vexriscv_axi_ram
+```
+Invoke Verilator and run the simulation by typing out the following commands on the terminal: -
+```
+verilator -Wno-fatal -sc -exe ./sim/testbench.v ./sim/verilator_tb.cpp ./rtl/*.v --timing --timescale 1ns/1ps --trace
+make -j -C obj_dir/ -f Vtestbench.mk Vtestbench
+obj_dir/Vtestbench
+```
+The dumped **tb.vcd** file can be easily opened via Gtkwave: -
+```
+gtkwave tb.vcd
+```
+
+## Run on VCS
+Move to the **vexriscv_axi_ram** directory by following commands shown in the **Run on Verilator** section. Then invoke VCS and run the simulaiton by typing out the following commands on the terminal: -
+```
+vcs ./rtl/*.v -sverilog -debug_access -debug_all -full64
+./simv
+```
+The dumped **tb.vcd** file can be easily opened via Gtkwave as shown earlier.
+
 ### Resources
 [VexRiscvAXI](https://github.com/SpinalHDL/VexRiscv/blob/master/src/main/scala/vexriscv/demo/VexRiscvAxi4WithIntegratedJtag.scala)
 
