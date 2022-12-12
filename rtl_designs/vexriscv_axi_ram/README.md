@@ -47,7 +47,7 @@ gtkwave tb.vcd
 ## Run on VCS
 Move to the **vexriscv_axi_ram** directory by following commands shown in the **Run on Verilator** section. Then invoke VCS and run the simulaiton by typing out the following commands on the terminal: -
 ```
-vcs ./rtl/*.v -sverilog -debug_access -debug_all -full64
+vcs ./rtl/*.v ./sim/*.v -sverilog -debug_access -full64
 ./simv
 ```
 The dumped **tb.vcd** file can be easily opened via Gtkwave as shown earlier.
