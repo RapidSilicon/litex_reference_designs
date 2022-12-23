@@ -3,7 +3,9 @@
 ## Design
 This model consists of a VexRiscv CPU in an AXI4 implementation with PLIC and CLINT modules, connected to an AXI Block RAM and and AXILite UART as peripherals via an AXILite interconnect communicating with the CPU with an AXI2AXILite bridge. The CPU loads instructions from another AXI memory connected directly to the CPU instruction bus, without any interconnect, as an embedded memory serving the purpose of a ROM. The CPU then executes the instructions on the attached IPs handling interrupts according to the written ISR. The sources of all the IPs used can also be found below this document as well as a pictoral visualisation of this model as below: -
 
-![vex_soc_plic_clint.jpg](./../../docs/vex_soc_plic_clint.jpg)
+<p align="center">
+  <img src="./../../docs/vex_soc_plic_clint.jpg" />
+</p>
 
 ## VexRiscv CPU
 The VexriscV CPU is sourced from the opensource SpinalHDL's repository **Vexriscv** from [here](https://github.com/SpinalHDL/VexRiscv/blob/master/src/main/scala/vexriscv/demo/VexRiscvAxi4LinuxPlicClint.scala). This CPU is responsible for performing all the desired operations on connected peripherals while. The PLIC is responsible for handling external IP interrupts while the CLINT is responsible for handling of the internal local inter-processor-interrupts.
