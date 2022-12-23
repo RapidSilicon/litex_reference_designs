@@ -65,9 +65,15 @@ The dumped **tb.vcd** file can be easily opened via Gtkwave as shown in the prev
 
 ### Resources
 [VexRiscv](https://github.com/SpinalHDL/VexRiscv/blob/master/src/main/scala/vexriscv/demo/VexRiscvAxi4LinuxPlicClint.scala)
+
 [AXI2AXILite Bridge](https://github.com/ZipCPU/wb2axip/blob/master/rtl/axi2axilite.v)
+
 [AXILite Interconnect](https://github.com/alexforencich/verilog-axi/blob/master/rtl/axil_interconnect.v)
+
 [AXI RAM](https://github.com/alexforencich/verilog-axi/blob/master/rtl/axi_ram.v)
+
 [AXILite UART](https://github.com/freecores/uart16550)
+
 [VexRiscv Bare Metal Libraries](https://github.com/SpinalHDL/VexRiscvSocSoftware) 
+
 [PLIC and CLINT Drivers](https://github.com/SpinalHDL/SaxonSoc)
