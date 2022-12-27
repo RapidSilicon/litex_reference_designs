@@ -258,6 +258,7 @@ module vex_soc (
     reg             dcd_pad_i = 1'd0;
 
 //----------------Instansiation------------//
+	// Turning 8 bit data to 32 bit for compatibility
     wire     [31:0]  temp_wire;
     assign temp_wire = {axi4_m01_axi_rdata, axi4_m01_axi_rdata, axi4_m01_axi_rdata, axi4_m01_axi_rdata};
 
