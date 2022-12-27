@@ -124,65 +124,65 @@ module vex_soc (
 
 
 
-    reg     [15:0]  axi4_m01_axi_awaddr;
-    reg     [2:0]   axi4_m01_axi_awprot;
-    reg             axi4_m01_axi_awvalid;
+    wire    [15:0]  axi4_m01_axi_awaddr;
+    wire    [2:0]   axi4_m01_axi_awprot;
+    wire            axi4_m01_axi_awvalid;
     wire            axi4_m01_axi_awready;
-    reg     [7:0]   axi4_m01_axi_wdata;
-    reg     [3:0]   axi4_m01_axi_wstrb;
-    reg             axi4_m01_axi_wvalid;
+    wire    [7:0]   axi4_m01_axi_wdata;
+    wire    [3:0]   axi4_m01_axi_wstrb;
+    wire            axi4_m01_axi_wvalid;
     wire            axi4_m01_axi_wready;
     wire    [1:0]   axi4_m01_axi_bresp;
     wire            axi4_m01_axi_bvalid;
-    reg             axi4_m01_axi_bready;
-    reg     [15:0]  axi4_m01_axi_araddr;
-    reg     [2:0]   axi4_m01_axi_arprot;
-    reg             axi4_m01_axi_arvalid;
+    wire            axi4_m01_axi_bready;
+    wire    [15:0]  axi4_m01_axi_araddr;
+    wire    [2:0]   axi4_m01_axi_arprot;
+    wire            axi4_m01_axi_arvalid;
     wire            axi4_m01_axi_arready;
     wire    [7:0]   axi4_m01_axi_rdata;
     wire    [1:0]   axi4_m01_axi_rresp;
     wire            axi4_m01_axi_rvalid;
-    reg             axi4_m01_axi_rready;
+    wire            axi4_m01_axi_rready;
 
-    reg     [15:0]  axi4_m02_axi_awaddr;
-    reg     [2:0]   axi4_m02_axi_awprot;
-    reg             axi4_m02_axi_awvalid;
+    wire    [15:0]  axi4_m02_axi_awaddr;
+    wire    [2:0]   axi4_m02_axi_awprot;
+    wire            axi4_m02_axi_awvalid;
     wire            axi4_m02_axi_awready;
-    reg     [31:0]  axi4_m02_axi_wdata;
-    reg     [3:0]   axi4_m02_axi_wstrb;
-    reg             axi4_m02_axi_wvalid;
+    wire    [31:0]  axi4_m02_axi_wdata;
+    wire    [3:0]   axi4_m02_axi_wstrb;
+    wire            axi4_m02_axi_wvalid;
     wire            axi4_m02_axi_wready;
     wire    [1:0]   axi4_m02_axi_bresp;
     wire            axi4_m02_axi_bvalid;
-    reg             axi4_m02_axi_bready;
-    reg     [15:0]  axi4_m02_axi_araddr;
-    reg     [2:0]   axi4_m02_axi_arprot;
-    reg             axi4_m02_axi_arvalid;
+    wire            axi4_m02_axi_bready;
+    wire    [15:0]  axi4_m02_axi_araddr;
+    wire    [2:0]   axi4_m02_axi_arprot;
+    wire            axi4_m02_axi_arvalid;
     wire            axi4_m02_axi_arready;
     wire    [31:0]  axi4_m02_axi_rdata;
     wire    [1:0]   axi4_m02_axi_rresp;
     wire            axi4_m02_axi_rvalid;
-    reg             axi4_m02_axi_rready;
+    wire            axi4_m02_axi_rready;
 
-    reg     [21:0]  axi4_m03_axi_awaddr;
-    reg     [2:0]   axi4_m03_axi_awprot;
-    reg             axi4_m03_axi_awvalid;
+    wire    [21:0]  axi4_m03_axi_awaddr;
+    wire    [2:0]   axi4_m03_axi_awprot;
+    wire            axi4_m03_axi_awvalid;
     wire            axi4_m03_axi_awready;
-    reg     [31:0]  axi4_m03_axi_wdata;
-    reg     [3:0]   axi4_m03_axi_wstrb;
-    reg             axi4_m03_axi_wvalid;
+    wire    [31:0]  axi4_m03_axi_wdata;
+    wire    [3:0]   axi4_m03_axi_wstrb;
+    wire            axi4_m03_axi_wvalid;
     wire            axi4_m03_axi_wready;
     wire    [1:0]   axi4_m03_axi_bresp;
     wire            axi4_m03_axi_bvalid;
-    reg             axi4_m03_axi_bready;
-    reg     [21:0]  axi4_m03_axi_araddr;
-    reg     [2:0]   axi4_m03_axi_arprot;
-    reg             axi4_m03_axi_arvalid;
+    wire            axi4_m03_axi_bready;
+    wire    [21:0]  axi4_m03_axi_araddr;
+    wire    [2:0]   axi4_m03_axi_arprot;
+    wire            axi4_m03_axi_arvalid;
     wire            axi4_m03_axi_arready;
     wire    [31:0]  axi4_m03_axi_rdata;
     wire    [1:0]   axi4_m03_axi_rresp;
     wire            axi4_m03_axi_rvalid;
-    reg             axi4_m03_axi_rready;
+    wire            axi4_m03_axi_rready;
 
 
 	
