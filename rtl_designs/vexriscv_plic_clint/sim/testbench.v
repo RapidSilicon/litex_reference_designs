@@ -18,6 +18,6 @@ module Tb;
             $display("Finish called from testbench");
             $finish;
         end
-    vex_soc soc(.clock(clock),
+    vex_soc soc(.clk(clock),
                 .reset(reset));
 endmodule
