@@ -3,7 +3,7 @@ Top-level module for the Vexriscv SoC with AXI RAM and AXI Interconnect
 */
 module vex_soc (
     input wire      reset,
-    input wire      clk
+    input wire      clock
 );
     wire   	      	vexriscv_dBusAxi_ar_ready;
     wire   	      	vexriscv_dBusAxi_aw_ready;
