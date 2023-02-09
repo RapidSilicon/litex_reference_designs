@@ -15,7 +15,7 @@ module Tb;
             $dumpfile("tb.vcd");
             $dumpvars;
             #40000;
-            $display("Finish called from testbench");
+            $display("SoC Simulation Completed");
             $finish;
         end
     vex_soc soc(.clock(clock),
