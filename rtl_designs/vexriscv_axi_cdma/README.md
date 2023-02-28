@@ -40,7 +40,7 @@ riscv64-unknown-elf-elf2hex --bit-width {requried bit-width} --input {path to th
 Make sure to put the generated .hex into the $readmemh block in the instruction AXI memory i.e. ROM.
 
 ## Run on Verilator
-Clone the repository and move to the **vexriscv_axi_CDMA** directory by the following commands: -
+Clone the repository and move to the **vexriscv_axi_cdma** directory by the following commands: -
 ```
 git clone git@github.com:RapidSilicon/litex_reference_designs.git
 cd litex_reference_designs/rtl_designs/vexriscv_axi_cdma
