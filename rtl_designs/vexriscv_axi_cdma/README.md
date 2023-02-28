@@ -1,4 +1,4 @@
-# IP Integration with VexRiscV CPU via AXI Interconnect
+# AXICDMA IP Integration with VexRiscV CPU via AXILite Interconnect
 
 ## Design
 This model consists of a VexRiscv CPU in an AXI4 implementation, connected to an AXICDMA as a peripheral via an  AXILite interconnect communicating with the CPU with an AXI2AXILite bridge and AXICDMA connected with two different AXI BLOCK RAM via an AXI interconnect. The CPU loads instructions from another AXI memory connected directly to the CPU instruction bus, without any interconnect, as an embedded memory serving the purpose of a ROM. The sources of all the IPs used can also be found below this document as well as a pictoral visualisation of this model as below: -
