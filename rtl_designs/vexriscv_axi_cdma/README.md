@@ -43,7 +43,7 @@ Make sure to put the generated .hex into the $readmemh block in the instruction 
 Clone the repository and move to the **vexriscv_axi_CDMA** directory by the following commands: -
 ```
 git clone git@github.com:RapidSilicon/litex_reference_designs.git
-cd litex_reference_designs/rtl_designs/vexriscv_axi_CDMA
+cd litex_reference_designs/rtl_designs/vexriscv_axi_cdma
 ```
 Invoke Verilator and run the simulation by typing out the following commands on the terminal: -
 ```
@@ -57,7 +57,7 @@ gtkwave tb.vcd
 ```
 
 ## Run on VCS
-Move to the **vexriscv_axi_CDMA** directory by following commands shown in the **Run on Verilator** section. Then invoke VCS and run the simulaiton by typing out the following commands on the terminal: -
+Move to the **vexriscv_axi_cdma** directory by following commands shown in the **Run on Verilator** section. Then invoke VCS and run the simulaiton by typing out the following commands on the terminal: -
 ```
 vcs ./rtl/*.v ./sim/*.v -sverilog -debug_access -full64
 ./simv

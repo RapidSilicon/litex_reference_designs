@@ -12,7 +12,7 @@ Litex Reference designs is a python package providing example design for Raptor 
 ├── rtl_designs
     ├── vexriscv_axi_ram
     ├── vexriscv_plic_clint
-``` └── vexriscv_axi_CDMA 
+``` └── vexriscv_axi_cdma 
 
 
 ## Raptor_example_designs
