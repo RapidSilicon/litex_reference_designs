@@ -39,7 +39,7 @@ load:
 
 ##
 ## *****************************
-## 2: clean: make help
+## 2: clean: 
 ## 	Clean the complete project
 
 clean:
