@@ -1,4 +1,0 @@
-===== vcs ./rtl/*.v ./sim/*.v -sverilog -debug_access -full64
-===== PWD: /bin/pwd
-===== env var 
-======================================
