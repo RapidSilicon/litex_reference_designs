@@ -648,7 +648,7 @@ axi4lite_uart_top uart(
     .s_axi_rresp                (axi4_m01_axi_rresp),
     .s_axi_rready               (axi4_m01_axi_rready),
     .int_o                      (int_o),
-    .srx_pad_i                  (srx_pad_i),
+    .srx_pad_i                  (stx_pad_o),
     .stx_pad_o                  (stx_pad_o),
     .rts_pad_o                  (rts_pad_o),
     .cts_pad_i                  (cts_pad_i),
