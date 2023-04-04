@@ -370,7 +370,7 @@ end
 
 
 initial begin
-	$readmemh("rtl/AXI_RAM_32.hex", mem);
+	$readmemh("rtl/cdma_uart.hex", mem);
 end
 
 endmodule
