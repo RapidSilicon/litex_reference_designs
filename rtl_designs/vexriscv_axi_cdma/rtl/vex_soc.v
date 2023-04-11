@@ -124,7 +124,7 @@ module vex_soc (
     wire            axi4_m00_axi_rready;
     wire			axi4_m00_axi_buser;
     wire 			axi4_m00_axi_ruser;
-    reg            	o_int;
+    wire            	o_int;
 
     //-----------AXI4 interconnect----------
 
