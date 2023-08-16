@@ -62,7 +62,7 @@ gtkwave tb.vcd
 ```
 
 ## Run on Icarus
-Move to the **vexriscv_axi_cdma** directory by following commands shown in the **Run on Verilator** section. Then invoke VCS and run the simulaiton by typing out the following commands on the terminal: -
+Move to the **vexriscv_axi_cdma** directory by following commands shown in the **Run on Verilator** section. Then invoke Iverilog and run the simulaiton by typing out the following commands on the terminal: -
 ```
 iverilog -g2012 rtl/*.v sim/*.v -o vex_soc -Irtl/
 vvp vex_soc
