@@ -12,7 +12,7 @@ from litex.soc.integration.soc_core import *
 from litex.soc.integration.builder import *
 from litex.soc.integration.soc import *
 
-from rapidsilicon.ip.axil_gpio.v1_0.litex_sim.axil_gpio_litex_wrapper import AXILITEGPIO
+from rapidsilicon.ip.axil_gpio.v1_0.litex_wrapper.axil_gpio_litex_wrapper import AXILITEGPIO
 
 
 # Platform ---------------------------------------------------------------------------------

@@ -12,7 +12,7 @@ from litex.soc.integration.soc_core import *
 from litex.soc.integration.builder import *
 from litex.soc.integration.soc import *
 
-from rapidsilicon.ip.axi_ram.v1_0.litex_sim.axi_ram_litex_wrapper import AXIRAM
+from rapidsilicon.ip.axi_ram.v1_0.litex_wrapper.axi_ram_litex_wrapper import AXIRAM
 
 
 # Platform ---------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ class BaseSoC(SoCCore):
 
         # AXI RAM-----------------------------------------------------------------------------------
         if with_axi_ram:
-            s_axi= axi.AXIInterface(data_width=32, address_width=16)
+            s_axi= axi.AXIInterface(data_width=32, address_width=32)
             self.submodules.axi_ram = AXIRAM(platform, s_axi)
             self.bus.add_slave("axi_ram", s_axi, region=SoCRegion(
             origin = 0x50000000,
