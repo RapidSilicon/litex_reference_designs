@@ -17,7 +17,7 @@ Two instances of AXI4 Block Ram are used in this model. One connected directly t
 ## Generating HEX
 The instructions for the **ROM** are generated via bare metal C code, the libraries for which are sourced from [this](https://github.com/SpinalHDL/VexRiscvSocSoftware) opensource GitHib repository. After writing the C code for the required functions on the connected peripheral AXI RAM, generate the **.elf** by running the makefile in the bare-metal directory as below:
 ```
-echo RISCV_PATH={path-to-riscv-toolchain}
+export RISCV_PATH=<path_to_riscv_toolchain>
 make
 // This will generate .elf, .asm, .hex, .v, .map files in the /build directory
 ```
