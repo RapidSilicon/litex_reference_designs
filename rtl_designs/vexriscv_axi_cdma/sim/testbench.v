@@ -3,6 +3,7 @@
 module Tb;
     reg   clock;
     reg   reset;
+    wire uart_out;
     initial begin
         reset = 1'b1;
         clock = 1'b0;
@@ -19,5 +20,6 @@ module Tb;
             $finish;
         end
     vex_soc soc(.clk(clock),
-                .reset(reset));
+                .reset(reset),
+                .stx_pad_o(uart_out));
 endmodule

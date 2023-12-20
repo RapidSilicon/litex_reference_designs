@@ -3,7 +3,8 @@ Top-level module for the Vexriscv SoC with AXI RAM and AXI Interconnect
 */
 module vex_soc (
     input wire      reset,
-    input wire      clk
+    input wire      clk,
+    output wire [31:0] axi4_m00_axi_rdata
 );
     wire   	      	vexriscv_dBusAxi_ar_ready;
     wire   	      	vexriscv_dBusAxi_aw_ready;
@@ -113,7 +114,6 @@ module vex_soc (
     wire             	axi4_m00_axi_arvalid;
     wire            	axi4_m00_axi_arready;
     wire    	[7:0]   axi4_m00_axi_rid;
-    wire    	[31:0]  axi4_m00_axi_rdata;
     wire    	[1:0]   axi4_m00_axi_rresp;
     wire            	axi4_m00_axi_rlast;
     wire            	axi4_m00_axi_rvalid;
@@ -153,7 +153,6 @@ module vex_soc (
     reg 	      	ram_s_axi_arvalid; 
     wire	      	ram_s_axi_arready; 
     wire	[7:0] 	ram_s_axi_rid; 
-    wire	[31:0]	ram_s_axi_rdata; 
     wire	[1:0] 	ram_s_axi_rresp; 
     wire	      	ram_s_axi_rlast; 
     wire	      	ram_s_axi_rvalid; 

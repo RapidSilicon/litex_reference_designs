@@ -5,7 +5,8 @@ Top-level module for the Vexriscv SoC with AXI RAM and AXI Interconnect
 
 module vex_soc (
     input wire      reset,
-    input wire      clk
+    input wire      clk,
+    output          stx_pad_o
 );
     wire   	      	vexriscv_dBusAxi_ar_ready;
     wire   	      	vexriscv_dBusAxi_aw_ready;
@@ -313,8 +314,6 @@ module vex_soc (
 
 //------------Uart ports---------------------------
     wire            int_o;
-    reg             srx_pad_i = 1'd0;
-    wire            stx_pad_o;
     wire            rts_pad_o;
     reg             cts_pad_i = 1'd0;
     wire            dtr_pad_o;

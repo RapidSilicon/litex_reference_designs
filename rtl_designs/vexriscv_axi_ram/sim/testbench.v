@@ -4,6 +4,7 @@
 module Tb;
     reg   clock;
     reg   reset;
+    wire [31:0] data_out;
     initial begin
         reset = 1'b1;
         clock = 1'b0;
@@ -19,9 +20,11 @@ module Tb;
         initial begin
             $dumpfile("tb.vcd");
             $dumpvars;
-            #7000  $finish;
+            #7000  ;
             $display("SoC Simulation Completed");
+            $finish;
         end
     vex_soc soc(.clk(clock),
-                .reset(reset));
+                .reset(reset),
+                .axi4_m00_axi_rdata(data_out));
 endmodule
