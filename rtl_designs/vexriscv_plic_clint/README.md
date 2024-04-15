@@ -39,10 +39,10 @@ riscv64-unknown-elf-elf2hex --bit-width {requried bit-width} --input {path to th
 Make sure to put the generated .hex into the $readmemh block in the instruction AXI memory i.e. ROM.
 
 ## (Not Running on Verilator for now)
-Clone the repository and move to the **vexriscv_axi_ram** directory by the following commands: -
+Clone the repository and move to the **vexriscv_plic_clint** directory by the following commands: -
 ```
 git clone git@github.com:RapidSilicon/litex_reference_designs.git
-cd litex_reference_designs/rtl_designs/vexriscv_axi_ram
+cd litex_reference_designs/rtl_designs/vexriscv_plic_clint
 ```
 Invoke Verilator and run the simulation by typing out the following commands on the terminal: -
 ```
@@ -56,7 +56,7 @@ gtkwave tb.vcd
 ```
 
 ## Run on Icarus
-Move to the **vexriscv_axi_cdma** directory by following commands shown in the **Run on Verilator** section. Then invoke Iverilog and run the simulation by typing out the following commands on the terminal: -
+Move to the **vexriscv_plic_clint** directory by following commands shown in the **Run on Verilator** section. Then invoke Iverilog and run the simulation by typing out the following commands on the terminal: -
 ```
 iverilog -g2012 rtl/*.v sim/*.v -o vex_soc -Irtl/
 vvp vex_soc
@@ -64,7 +64,7 @@ vvp vex_soc
 The dumped **tb.vcd** file can be easily opened via Gtkwave as shown earlier.
 
 ## Run on VCS
-Move to the **vexriscv_axi_ram** directory by following commands shown in the **Run on Verilator** section. Then invoke VCS and run the simulation by typing out the following commands on the terminal: -
+Move to the **vexriscv_plic_clint** directory by following commands shown in the **Run on Verilator** section. Then invoke VCS and run the simulation by typing out the following commands on the terminal: -
 ```
 vcs rtl/*.v +incdir+rtl/ sim/*.v -sverilog -debug_access -full64
 ./simv
